@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casamento | Rafael & Fabi</title>
+  <meta name="description" content="Site do nosso casamento com data, hospedagem, fotos e informações de pagamento da acomodação." />
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --card: rgba(255,255,255,0.88);
+      --text: #3d2f2f;
+      --muted: #7b6a6a;
+      --accent: #b8896b;
+      --accent-dark: #8d654d;
+      --line: #eaded6;
+      --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff2ea 0%, transparent 28%),
+        radial-gradient(circle at top right, #f7efe8 0%, transparent 20%),
+        linear-gradient(180deg, #fffdfb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,250,247,0.75);
+      border-bottom: 1px solid rgba(234,222,214,0.9);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      align-items: center;
+      padding: 56px 0 36px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .hero-content {
+      padding: 56px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5ece6;
+      color: var(--accent-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 52ch;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); }
+
+    .hero-photo {
+      min-height: 420px;
+      background:
+        linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.12)),
+        url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+    }
+
+    .section-text {
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 70ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .meta {
+      display: grid;
+      gap: 14px;
+    }
+
+    .meta-item {
+      padding: 16px 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 0.84rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .countdown-box {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px 12px;
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      line-height: 1;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .countdown-label {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hotel-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hotel-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .hotel-item strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 12px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      aspect-ratio: 1 / 1;
+    }
+
+    .gallery .wide { grid-column: span 6; }
+    .gallery .small { grid-column: span 3; }
+
+    .pix-box {
+      text-align: center;
+      display: grid;
+      gap: 16px;
+      justify-items: center;
+    }
+
+    .pix-frame {
+      width: min(100%, 320px);
+      aspect-ratio: 1 / 1;
+      border: 2px dashed var(--accent);
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .pix-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 16px;
+    }
+
+    .pix-note {
+      color: var(--muted);
+      font-size: 0.96rem;
+      max-width: 38ch;
+    }
+
+    .footer {
+      padding: 40px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 16px 0 0;
+    }
+
+    @media (max-width: 920px) {
+      .hero-card, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero-photo { min-height: 320px; order: -1; }
+      .hero-content { padding: 32px 24px; }
+      .gallery .wide, .gallery .small { grid-column: span 12; }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner { flex-direction: column; align-items: flex-start; }
+      .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .nav { gap: 6px; }
+      .nav a { padding: 8px 10px; font-size: 0.94rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Rafael & Fabi</div>
+      <nav class="nav">
+        <a href="#data">Data</a>
+        <a href="#hospedagem">Hospedagem</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#pix">Pagamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow">Nosso casamento</span>
+            <h1>Rafael <br>& Fabi</h1>
+            <p class="subtitle">
+              Estamos muito felizes em celebrar esse momento com vocês. Aqui vocês encontram a data do casamento, informações de hospedagem, fotos e o QR Code para pagamento das diárias da acomodação.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#hospedagem">Ver hospedagem</a>
+              <a class="btn btn-secondary" href="#pix">Ver pagamento</a>
+            </div>
+          </div>
+          <div class="hero-photo" aria-label="Foto principal do casal"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <div class="container grid grid-2">
+        <div class="card">
+          <h2 class="section-title">Data do evento</h2>
+          <p class="section-text">Edite abaixo com a data, horário e local corretos do casamento.</p>
+
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Data</span>
+              <strong>15 de maio de 2027</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Horário</span>
+              <strong>16h00</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Local</span>
+              <strong>Morros de Camaragibe, Alagoas</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Contagem regressiva</h3>
+          <p class="section-text">A contagem abaixo é automática. Basta ajustar a variável da data no código.</p>
+          <div class="countdown" id="countdown">
+            <div class="countdown-box">
+              <span class="countdown-number" id="days">--</span>
+              <span class="countdown-label">dias</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="hours">--</span>
+              <span class="countdown-label">horas</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="minutes">--</span>
+              <span class="countdown-label">min</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="seconds">--</span>
+              <span class="countdown-label">seg</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hospedagem">
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Informações de hospedagem</h2>
+          <p class="section-text">
+            Use esta área para explicar como funcionará a acomodação, prazos de pagamento, política de reserva e contatos para dúvidas.
+          </p>
+          <div class="grid grid-2">
+            <div class="hotel-list">
+              <div class="hotel-item">
+                <strong>Pousada / Hotel principal</strong>
+                <span>Nome do hotel ou pousada</span><br>
+                <span>Endereço completo</span><br>
+                <span>Check-in: 14h | Check-out: 12h</span>
+              </div>
+              <div class="hotel-item">
+                <strong>Como pagar</strong>
+                <span>Pagamento das diárias via Pix utilizando o QR Code abaixo.</span><br>
+                <span>Prazo sugerido: até 30 dias antes do evento.</span>
+              </div>
+              <div class="hotel-item">
+                <strong>Contato</strong>
+                <span>WhatsApp: (00) 00000-0000</span><br>
+                <span>E-mail: contato@seudominio.com</span>
+              </div>
+            </div>
+            <div class="hotel-list">
+              <div class="hotel-item">
+                <strong>Observações</strong>
+                <span>Você pode colocar aqui número mínimo de diárias, regras para crianças, transporte, café da manhã incluso e qualquer outra informação importante.</span>
+              </div>
+              <div class="hotel-item">
+                <strong>Dica</strong>
+                <span>Se quiser, adicione um botão com link para Google Maps, Booking ou WhatsApp do responsável pela hospedagem.</span>
+              </div>
+              <div class="hotel-item">
+                <strong>Importante</strong>
+                <span>Como este site ficará público no GitHub Pages, evite publicar dados sensíveis além do necessário.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fotos">
+      <div class="container">
+        <h2 class="section-title">Fotos</h2>
+        <p class="section-text">Substitua as imagens abaixo pelas fotos de vocês. Você pode usar links externos ou colocar arquivos na pasta do projeto.</p>
+        <div class="gallery">
+          <img class="wide" src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80" alt="Foto do casal 1">
+          <img class="small" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Foto do casal 2">
+          <img class="small" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80" alt="Foto do casal 3">
+          <img class="small" src="https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=900&q=80" alt="Foto do casal 4">
+          <img class="small" src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80" alt="Foto do casal 5">
+        </div>
+      </div>
+    </section>
+
+    <section id="pix">
+      <div class="container grid grid-2">
+        <div class="card">
+          <h2 class="section-title">Pagamento das diárias</h2>
+          <p class="section-text">
+            Aqui você pode orientar os convidados a fazerem o pagamento da acomodação. Basta trocar a imagem de exemplo pelo QR Code real do seu Pix.
+          </p>
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Beneficiário</span>
+              <strong>Nome do responsável</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Chave Pix</span>
+              <strong>email@exemplo.com</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Instrução</span>
+              <strong>Após o pagamento, enviar comprovante para o WhatsApp informado acima.</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="card pix-box">
+          <h3>QR Code Pix</h3>
+          <div class="pix-frame">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg" alt="QR Code Pix de exemplo">
+          </div>
+          <p class="pix-note">
+            Troque a imagem acima pelo seu QR Code. Se preferir, também pode incluir uma chave Pix em texto logo abaixo.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="divider"></div>
+    <p>Feito com carinho para celebrar esse momento especial.</p>
+  </footer>
+
+  <script>
+    // Ajuste aqui a data do casamento no formato: ANO-MÊS-DIA T HORA:MINUTO:SEGUNDO
+    const weddingDate = new Date('2027-05-15T16:00:00');
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '0';
+        hoursEl.textContent = '0';
+        minutesEl.textContent = '0';
+        secondsEl.textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

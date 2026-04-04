@@ -276,6 +276,44 @@
       margin-bottom: 6px;
     }
 
+    .occupancy-wrap {
+      margin-top: 12px;
+    }
+
+    .occupancy-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .occupancy-track {
+      width: 100%;
+      height: 16px;
+      background: #f3ebe5;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .occupancy-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      border-radius: 999px;
+      transition: width 0.4s ease;
+    }
+
+    .occupancy-note {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -443,10 +481,24 @@
           <div class="grid grid-2">
             <div class="hotel-list">
               <div class="hotel-item">
+                <strong>Disponibilidade de quartos</strong>
+                <div class="occupancy-wrap">
+                  <div class="occupancy-head">
+                    <span id="occupancy-label">5 de 40 quartos reservados</span>
+                    <span id="availability-label">35 disponíveis</span>
+                  </div>
+                  <div class="occupancy-track">
+                    <div class="occupancy-bar" id="occupancy-bar"></div>
+                  </div>
+                  <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
+                </div>
+              </div>
+              <div class="hotel-item">
                 <strong>Hotel principal</strong>
                 <span>Vila Entre Chaves</span><br>
                 <span>Praia dos Morros de Camaragibe, Costa dos Corais, Alagoas</span><br>
-                <span>Hospedagem em um refúgio exclusivo à beira-mar</span>
+                <span>Hospedagem em um refúgio exclusivo à beira-mar</span><br>
+                <span>Total de quartos disponíveis para o evento: 40</span>
               </div>
               <div class="hotel-item">
                 <strong>Valor da acomodação (03 diárias)</strong>
@@ -471,7 +523,7 @@
               </div>
               <div class="hotel-item">
                 <strong>Importante</strong>
-                <span>O valor proposto contempla 03 diárias em suíte com café a manhã. As vagas são limitadas e garantiadas mediante ao pagamento.</span>
+                <span>O valor proposto contempla 03 diárias em suíte com café da manhã. As vagas são limitadas e garantidas mediante pagamento.</span>
               </div>
             </div>
           </div>
@@ -535,7 +587,25 @@
   </footer>
 
   <script>
-    // Ajuste aqui a data do casamento no formato: ANO-MÊS-DIA T HORA:MINUTO:SEGUNDO
+    const totalRooms = 40;
+    const bookedRooms = 5;
+
+    function updateOccupancy() {
+      const occupancyBar = document.getElementById('occupancy-bar');
+      const occupancyLabel = document.getElementById('occupancy-label');
+      const availabilityLabel = document.getElementById('availability-label');
+
+      if (!occupancyBar || !occupancyLabel || !availabilityLabel) return;
+
+      const safeBookedRooms = Math.min(Math.max(bookedRooms, 0), totalRooms);
+      const availableRooms = Math.max(totalRooms - safeBookedRooms, 0);
+      const percentage = totalRooms > 0 ? (safeBookedRooms / totalRooms) * 100 : 0;
+
+      occupancyBar.style.width = `${percentage}%`;
+      occupancyLabel.textContent = `${safeBookedRooms} de ${totalRooms} quartos reservados`;
+      availabilityLabel.textContent = `${availableRooms} disponíveis`;
+    }
+
     const weddingDate = new Date('2027-09-25T17:00:00');
 
     const daysEl = document.getElementById('days');
@@ -566,6 +636,7 @@
       secondsEl.textContent = String(seconds).padStart(2, '0');
     }
 
+    updateOccupancy();
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>

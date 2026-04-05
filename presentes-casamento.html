@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentes | Fabiana & Rafael</title>
+  <meta name="description" content="Lista de presentes de casamento de Fabiana & Rafael." />
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --card: rgba(255,255,255,0.88);
+      --text: #3d2f2f;
+      --muted: #7b6a6a;
+      --accent: #b8896b;
+      --accent-dark: #8d654d;
+      --line: #eaded6;
+      --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
+      --radius: 24px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff2ea 0%, transparent 28%),
+        radial-gradient(circle at top right, #f7efe8 0%, transparent 20%),
+        linear-gradient(180deg, #fffdfb 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,250,247,0.75);
+      border-bottom: 1px solid rgba(234,222,214,0.9);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 56px 0 26px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .hero-content {
+      padding: 52px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5ece6;
+      color: var(--accent-dark);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 1.05;
+      font-weight: 600;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 56ch;
+      margin-bottom: 0;
+    }
+
+    .hero-photo {
+      min-height: 360px;
+      background:
+        linear-gradient(rgba(67,48,38,0.10), rgba(67,48,38,0.12)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    section {
+      padding: 34px 0 44px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      font-weight: 600;
+    }
+
+    .section-text {
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 74ch;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .gift-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gift-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .gift-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .gift-tag {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #f5ece6;
+      color: var(--accent-dark);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .gift-title {
+      margin: 0;
+      font-size: 1.2rem;
+      line-height: 1.28;
+    }
+
+    .gift-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .gift-price {
+      margin-top: 6px;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent-dark);
+    }
+
+    .gift-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: #fff;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); }
+
+    .note-box {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(46, 31, 24, 0.52);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(100%, 460px);
+      background: #fffdfb;
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(35, 21, 15, 0.2);
+      padding: 24px;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.95);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .modal-title {
+      margin: 4px 0 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+    }
+
+    .modal-price {
+      color: var(--accent-dark);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .modal-text {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .qr-frame {
+      width: min(100%, 280px);
+      aspect-ratio: 1 / 1;
+      margin: 0 auto 14px;
+      border: 2px dashed var(--accent);
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+    }
+
+    .footnote {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .footer {
+      padding: 10px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 16px 0 0;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card,
+      .gift-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        min-height: 280px;
+        order: -1;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .gift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-content {
+        padding: 34px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Fabiana & Rafael</div>
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="presentes-casamento.html" class="active">Presentes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow">Lista de presentes</span>
+            <h1>Ajude a criar memórias com a gente</h1>
+            <p class="subtitle">
+              Já temos muita coisa material, então preferimos transformar os presentes em experiências especiais. Escolha uma opção abaixo e, ao clicar no botão, você poderá inserir o QR Code correspondente ao valor daquele presente.
+            </p>
+          </div>
+          <div class="hero-photo" aria-label="Imagem decorativa da página de presentes"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Escolha um presente</h2>
+        <p class="section-text">
+          Cada presente representa um momento especial do casal. Você pode trocar os textos, imagens e os QR Codes depois, mantendo a mesma estrutura visual.
+        </p>
+
+        <div class="gift-grid">
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80" alt="Drinks do casal" />
+            <div class="gift-body">
+              <span class="gift-tag">Experiência</span>
+              <h3 class="gift-title">Drinks do casal na praia</h3>
+              <p class="gift-text">Um brinde especial para começarmos essa nova fase com o pé direito.</p>
+              <div class="gift-price">R$ 150,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Drinks do casal na praia" data-price="R$ 150,00" data-qr="qr-150.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Jantar romântico" />
+            <div class="gift-body">
+              <span class="gift-tag">Momento a dois</span>
+              <h3 class="gift-title">Jantar romântico</h3>
+              <p class="gift-text">Uma noite especial celebrando o amor, a boa comida e as boas lembranças.</p>
+              <div class="gift-price">R$ 300,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Jantar romântico" data-price="R$ 300,00" data-qr="qr-300.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Passeio especial" />
+            <div class="gift-body">
+              <span class="gift-tag">Passeio</span>
+              <h3 class="gift-title">Passeio inesquecível</h3>
+              <p class="gift-text">Um momento fora da rotina para aproveitar a viagem com leveza e alegria.</p>
+              <div class="gift-price">R$ 450,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Passeio inesquecível" data-price="R$ 450,00" data-qr="qr-450.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Spa relaxante" />
+            <div class="gift-body">
+              <span class="gift-tag">Relax</span>
+              <h3 class="gift-title">Spa para relaxar</h3>
+              <p class="gift-text">Depois da correria, um presente para descansar e aproveitar o momento.</p>
+              <div class="gift-price">R$ 700,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Spa para relaxar" data-price="R$ 700,00" data-qr="qr-700.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Passeio de barco" />
+            <div class="gift-body">
+              <span class="gift-tag">Experiência premium</span>
+              <h3 class="gift-title">Passeio de barco</h3>
+              <p class="gift-text">Um presente para explorar paisagens lindas e guardar memórias incríveis.</p>
+              <div class="gift-price">R$ 1.200,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Passeio de barco" data-price="R$ 1.200,00" data-qr="qr-1200.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="gift-card">
+            <img class="gift-image" src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=900&q=80" alt="Cota da lua de mel" />
+            <div class="gift-body">
+              <span class="gift-tag">Presente especial</span>
+              <h3 class="gift-title">Cota da lua de mel</h3>
+              <p class="gift-text">Uma ajuda carinhosa para tornar a nossa viagem ainda mais especial.</p>
+              <div class="gift-price">R$ 2.000,00</div>
+              <div class="gift-actions">
+                <button class="btn btn-primary gift-button" data-title="Cota da lua de mel" data-price="R$ 2.000,00" data-qr="qr-2000.png">Ver QR Code</button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="note-box">
+          <strong>Nota importante:</strong> antes de concluir o presente, confira se o beneficiário exibido no pagamento é <strong>Rafael Trigo Rizzuto</strong>. Depois, se quiser, envie o comprovante aos noivos.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="gift-modal" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">×</button>
+      <h2 class="modal-title" id="modal-title">Presente</h2>
+      <div class="modal-price" id="modal-price">R$ 0,00</div>
+      <p class="modal-text">Faça a leitura do QR Code abaixo para concluir esse presente.</p>
+      <div class="qr-frame">
+        <img id="modal-qr" src="qr-placeholder.png" alt="QR Code do presente" />
+      </div>
+      <div class="footnote">
+        Antes de pagar, confirme se o beneficiário mostrado pelo banco é <strong>Rafael Trigo Rizzuto</strong>.
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer container">
+    <div class="divider"></div>
+    <p>Feito com carinho para celebrar esse momento especial.</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById('gift-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalPrice = document.getElementById('modal-price');
+    const modalQr = document.getElementById('modal-qr');
+    const modalClose = document.getElementById('modal-close');
+    const giftButtons = document.querySelectorAll('.gift-button');
+
+    giftButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        modalTitle.textContent = button.dataset.title;
+        modalPrice.textContent = button.dataset.price;
+        modalQr.src = button.dataset.qr;
+        modalQr.alt = `QR Code para ${button.dataset.title}`;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

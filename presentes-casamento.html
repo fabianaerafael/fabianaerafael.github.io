@@ -508,20 +508,52 @@
     </section>
   </main>
 
-  <div class="modal" id="gift-modal" aria-hidden="true">
-    <div class="modal-card">
-      <button class="modal-close" id="modal-close" aria-label="Fechar">×</button>
-      <h2 class="modal-title" id="modal-title">Presente</h2>
-      <div class="modal-price" id="modal-price">R$ 0,00</div>
-      <p class="modal-text">Faça a leitura do QR Code abaixo para concluir esse presente.</p>
-      <div class="qr-frame">
-        <img id="modal-qr" src="qr-placeholder.png" alt="QR Code do presente" />
-      </div>
-      <div class="footnote">
-        Antes de pagar, confirme se o beneficiário mostrado pelo banco é <strong>Rafael Trigo Rizzuto</strong>.
-      </div>
+<div class="modal" id="gift-modal" aria-hidden="true">
+  <div class="modal-card">
+    <button class="modal-close" id="modal-close">×</button>
+
+    <h2 class="modal-title" id="modal-title">Presente</h2>
+    <div class="modal-price" id="modal-price">R$ 0,00</div>
+
+    <p class="modal-text">
+      Faça o pagamento pelo QR Code abaixo e, se quiser, deixe uma mensagem para nós ❤️
+    </p>
+
+    <div class="qr-frame">
+      <img id="modal-qr" src="qr-placeholder.png">
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <form id="gift-form" action="https://formspree.io/f/xeepdnbz" method="POST"
+      style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
+
+      <input type="hidden" name="presente" id="form-presente">
+      <input type="hidden" name="valor" id="form-valor">
+
+      <input type="text" name="nome" placeholder="Seu nome" required
+        style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
+
+      <input type="email" name="email" placeholder="Seu e-mail (opcional)"
+        style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
+
+      <textarea name="mensagem" placeholder="Escreva uma mensagem para os noivos"
+        rows="3"
+        style="padding:12px; border-radius:12px; border:1px solid #eaded6;"></textarea>
+
+      <button type="submit" class="btn btn-primary">
+        Enviar mensagem aos noivos
+      </button>
+    </form>
+
+    <div id="success-message" style="display:none; margin-top:12px; color:green;">
+      Mensagem enviada com sucesso ❤️
+    </div>
+
+    <div class="footnote">
+      Antes de pagar, confirme se o beneficiário é <strong>Rafael Trigo Rizzuto</strong>.
     </div>
   </div>
+</div>
 
   <footer class="footer container">
     <div class="divider"></div>
@@ -537,15 +569,43 @@
     const giftButtons = document.querySelectorAll('.gift-button');
 
     giftButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        modalTitle.textContent = button.dataset.title;
-        modalPrice.textContent = button.dataset.price;
-        modalQr.src = button.dataset.qr;
-        modalQr.alt = `QR Code para ${button.dataset.title}`;
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-      });
-    });
+  button.addEventListener('click', () => {
+    modalTitle.textContent = button.dataset.title;
+    modalPrice.textContent = button.dataset.price;
+    modalQr.src = button.dataset.qr;
+    modalQr.alt = `QR Code para ${button.dataset.title}`;
+
+    document.getElementById('form-presente').value = button.dataset.title;
+    document.getElementById('form-valor').value = button.dataset.price;
+
+    document.getElementById('success-message').style.display = 'none';
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+  });
+});
+
+const form = document.getElementById('gift-form');
+const successMessage = document.getElementById('success-message');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if (response.ok) {
+    form.reset();
+    successMessage.style.display = 'block';
+  }
+});
 
     function closeModal() {
       modal.classList.remove('open');

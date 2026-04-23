@@ -18,12 +18,14 @@
       --radius: 24px;
       --max: 1120px;
     }
-.room-block {
-  margin-bottom: 20px;
-}
+
+    .room-block {
+      margin-bottom: 20px;
+    }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -60,14 +62,14 @@
       padding: 14px 0;
     }
 
-.brand {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.2rem;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  color: var(--text);
-  cursor: pointer;
-}
+    .brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+    }
 
     .nav {
       display: flex;
@@ -95,6 +97,7 @@
     }
 
     .hero-card {
+      position: relative;
       background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
       border: 1px solid rgba(255,255,255,0.9);
       box-shadow: var(--shadow);
@@ -106,6 +109,8 @@
 
     .hero-content {
       padding: 56px;
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -158,7 +163,9 @@
       color: #fff;
     }
 
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
 
     .btn-secondary {
       background: #fff;
@@ -166,19 +173,21 @@
       color: var(--text);
     }
 
-    .btn-secondary:hover { border-color: var(--accent); }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
 
     .btn-location {
-  background: #fff;
-  border: 1px solid var(--line);
-  color: var(--text);
-  box-shadow: 0 8px 18px rgba(77, 52, 39, 0.05);
-}
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(77, 52, 39, 0.05);
+    }
 
-.btn-location:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
+    .btn-location:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     .hero-photo {
       min-height: 420px;
@@ -255,42 +264,42 @@
     }
 
     .countdown-box {
-  background: linear-gradient(180deg, #fff 0%, #fcf7f3 100%);
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  padding: 24px 14px;
-  text-align: center;
-  box-shadow: 0 10px 24px rgba(77, 52, 39, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+      background: linear-gradient(180deg, #fff 0%, #fcf7f3 100%);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 24px 14px;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(77, 52, 39, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.countdown-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(77, 52, 39, 0.10);
-}
+    .countdown-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(77, 52, 39, 0.10);
+    }
 
-.countdown-highlight {
-  background: linear-gradient(180deg, #fff7f1 0%, #f4e6da 100%);
-  border-color: #d7b9a3;
-  transform: scale(1.02);
-}
+    .countdown-highlight {
+      background: linear-gradient(180deg, #fff7f1 0%, #f4e6da 100%);
+      border-color: #d7b9a3;
+      transform: scale(1.02);
+    }
 
-.countdown-number {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1;
-  font-weight: 700;
-  color: var(--accent-dark);
-  letter-spacing: -0.03em;
-}
+    .countdown-number {
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1;
+      font-weight: 700;
+      color: var(--accent-dark);
+      letter-spacing: -0.03em;
+    }
 
-.countdown-label {
-  display: block;
-  margin-top: 10px;
-  color: var(--muted);
-  font-size: 0.92rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
+    .countdown-label {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
 
     .hotel-list {
       display: grid;
@@ -308,21 +317,6 @@
       display: block;
       font-size: 1.05rem;
       margin-bottom: 6px;
-    }
-
-    .occupancy-wrap {
-      margin-top: 12px;
-    }
-
-    .occupancy-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      flex-wrap: wrap;
     }
 
     .occupancy-track {
@@ -366,61 +360,56 @@
     .gallery .wide { grid-column: span 6; }
     .gallery .small { grid-column: span 3; }
 
-    .pix-box {
-      text-align: center;
-      display: grid;
-      gap: 16px;
-      justify-items: center;
+    .whatsapp-box {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .pix-frame {
-      width: min(100%, 320px);
-      aspect-ratio: 1 / 1;
-      border: 2px dashed var(--accent);
-      border-radius: 24px;
-      display: grid;
-      place-items: center;
-      padding: 18px;
-      background: #fff;
+    .ornament-card {
+      position: relative;
+      overflow: hidden;
     }
 
-    .pix-frame img {
+    .ornament {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.10;
+      color: #c8a892;
+      z-index: 0;
+    }
+
+    .ornament svg {
+      display: block;
       width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 16px;
+      height: auto;
     }
 
-    .pix-note {
-      color: var(--muted);
-      font-size: 0.96rem;
-      max-width: 38ch;
+    .ornament-palm-top {
+      top: 14px;
+      right: 18px;
+      width: 90px;
     }
-.btn-location {
-  background: #fff;
-  color: var(--text);
-  border: 1px solid var(--line);
-  box-shadow: 0 8px 18px rgba(77, 52, 39, 0.05);
-}
 
-.btn-location:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
+    .ornament-palm-hero {
+      top: 22px;
+      right: 22px;
+      width: 100px;
+    }
 
-.whatsapp-box {
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    .ornament-coconut {
+      bottom: 12px;
+      left: 16px;
+      width: 56px;
+    }
 
-.whatsapp-box {
-  margin-top: 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
+    .ornament-leaf {
+      top: 14px;
+      right: 18px;
+      width: 72px;
+    }
+
     .footer {
       padding: 40px 0 60px;
       text-align: center;
@@ -446,27 +435,66 @@
       .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .nav { gap: 6px; }
       .nav a { padding: 8px 10px; font-size: 0.94rem; }
+
+      .ornament-palm-top {
+        width: 70px;
+        top: 12px;
+        right: 12px;
+      }
+
+      .ornament-palm-hero {
+        width: 78px;
+        top: 14px;
+        right: 14px;
+      }
+
+      .ornament-coconut {
+        width: 44px;
+        left: 12px;
+        bottom: 10px;
+      }
+
+      .ornament-leaf {
+        width: 56px;
+        top: 12px;
+        right: 12px;
+      }
     }
   </style>
 </head>
-  <body id="topo">
+<body id="topo">
   <header class="topbar">
     <div class="container topbar-inner">
       <a href="#topo" class="brand">Fabiana & Rafael</a>
       <nav class="nav">
-  <a href="#data">Data</a>
-  <a href="#hospedagem">Hospedagem</a>
-  <a href="#fotos">Fotos</a>
-  <a href="#reservas">Reservas e pagamento</a>
-  <a href="presentes-casamento.html">Presentes</a>
-</nav>
+        <a href="#data">Data</a>
+        <a href="#hospedagem">Hospedagem</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#reservas">Reservas e pagamento</a>
+        <a href="presentes-casamento.html">Presentes</a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero-card">
+        <div class="hero-card ornament-card">
+          <div class="ornament ornament-palm-hero" aria-hidden="true">
+            <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M56 150C58 120 60 90 67 64" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M68 63C83 55 95 45 104 29" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M68 63C88 67 103 66 117 59" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C83 79 93 93 99 108" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C54 49 43 39 28 31" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C48 65 30 63 14 55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C50 76 38 89 31 104" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="67" cy="63" r="3" fill="currentColor"/>
+              <circle cx="61" cy="68" r="2.5" fill="currentColor"/>
+              <circle cx="73" cy="68" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
+
           <div class="hero-content">
             <span class="eyebrow">Nosso casamento</span>
             <h1>Fabiana <br>& Rafael</h1>
@@ -474,10 +502,10 @@
               Estamos muito felizes em celebrar esse momento com vocês. Aqui vocês encontram a data do casamento, informações de hospedagem, fotos, disponibilidade dos quartos e orientações sobre reservas e pagamento.
             </p>
             <div class="hero-actions">
-  <a class="btn btn-primary" href="#hospedagem">Ver hospedagem</a>
-  <a class="btn btn-secondary" href="#reservas">Reservas e pagamento</a>
-  <a class="btn btn-secondary" href="presentes-casamento.html">Lista de presentes</a>
-</div>
+              <a class="btn btn-primary" href="#hospedagem">Ver hospedagem</a>
+              <a class="btn btn-secondary" href="#reservas">Reservas e pagamento</a>
+              <a class="btn btn-secondary" href="presentes-casamento.html">Lista de presentes</a>
+            </div>
           </div>
           <div class="hero-photo" aria-label="Foto principal do casal"></div>
         </div>
@@ -506,40 +534,56 @@
           </div>
         </div>
 
-<div class="card">
-  <h2 class="section-title">Estamos contando os dias</h2>
-<p class="section-text">
-  Contagem regressiva para o nosso grande dia.
-</p>
+        <div class="card ornament-card">
+          <div class="ornament ornament-palm-top" aria-hidden="true">
+            <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M56 150C58 120 60 90 67 64" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M68 63C83 55 95 45 104 29" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M68 63C88 67 103 66 117 59" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C83 79 93 93 99 108" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C54 49 43 39 28 31" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C48 65 30 63 14 55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M67 63C50 76 38 89 31 104" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="67" cy="63" r="3" fill="currentColor"/>
+              <circle cx="61" cy="68" r="2.5" fill="currentColor"/>
+              <circle cx="73" cy="68" r="2.5" fill="currentColor"/>
+            </svg>
+          </div>
 
-  <div class="countdown" id="countdown">
-    <div class="countdown-box countdown-highlight">
-      <span class="countdown-number" id="days">--</span>
-      <span class="countdown-label">dias</span>
-    </div>
-    <div class="countdown-box">
-      <span class="countdown-number" id="hours">--</span>
-      <span class="countdown-label">horas</span>
-    </div>
-    <div class="countdown-box">
-      <span class="countdown-number" id="minutes">--</span>
-      <span class="countdown-label">minutos</span>
-    </div>
-    <div class="countdown-box">
-      <span class="countdown-number" id="seconds">--</span>
-      <span class="countdown-label">segundos</span>
-    </div>
-  </div>
+          <h2 class="section-title">Estamos contando os dias</h2>
+          <p class="section-text">
+            Contagem regressiva para o nosso grande dia.
+          </p>
 
-<div class="meta" style="margin-top: 18px;">
-  <div class="meta-item">
-    <span class="meta-label">Casamento</span>
-    <strong id="countdown-date">25 de setembro de 2027, às 17h00</strong>
-  </div>
-</div>
+          <div class="countdown" id="countdown">
+            <div class="countdown-box countdown-highlight">
+              <span class="countdown-number" id="days">--</span>
+              <span class="countdown-label">dias</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="hours">--</span>
+              <span class="countdown-label">horas</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="minutes">--</span>
+              <span class="countdown-label">minutos</span>
+            </div>
+            <div class="countdown-box">
+              <span class="countdown-number" id="seconds">--</span>
+              <span class="countdown-label">segundos</span>
+            </div>
+          </div>
 
-  <p class="section-text" id="countdown-message" style="margin-top: 14px; margin-bottom: 0; text-align: center;"></p>
-</div>
+          <div class="meta" style="margin-top: 18px;">
+            <div class="meta-item">
+              <span class="meta-label">Casamento</span>
+              <strong id="countdown-date">25 de setembro de 2027, às 17h00</strong>
+            </div>
+          </div>
+
+          <p class="section-text" id="countdown-message" style="margin-top: 14px; margin-bottom: 0; text-align: center;"></p>
+        </div>
+      </div>
     </section>
 
     <section id="hospedagem">
@@ -549,96 +593,115 @@
           <p class="section-text">
             A hospedagem no Vila Entre Chaves, local dos eventos, está considerada para 03 diárias com café da manhã.
           </p>
+
           <div class="grid grid-2">
             <div class="hotel-list">
               <div class="hotel-item">
-  <strong>Disponibilidade de quartos</strong>
+                <strong>Disponibilidade de quartos</strong>
 
-  <div class="room-block">
-    <strong>Quartos duplos</strong>
-    <div class="occupancy-track">
-      <div class="occupancy-bar" id="bar-duplo"></div>
-    </div>
-    <p class="occupancy-note" id="text-duplo"></p>
-  </div>
+                <div class="room-block">
+                  <strong>Quartos duplos</strong>
+                  <div class="occupancy-track">
+                    <div class="occupancy-bar" id="bar-duplo"></div>
+                  </div>
+                  <p class="occupancy-note" id="text-duplo"></p>
+                </div>
 
-  <div class="room-block">
-    <strong>Quartos triplos</strong>
-    <div class="occupancy-track">
-      <div class="occupancy-bar" id="bar-triplo"></div>
-    </div>
-    <p class="occupancy-note" id="text-triplo"></p>
-  </div>
+                <div class="room-block">
+                  <strong>Quartos triplos</strong>
+                  <div class="occupancy-track">
+                    <div class="occupancy-bar" id="bar-triplo"></div>
+                  </div>
+                  <p class="occupancy-note" id="text-triplo"></p>
+                </div>
 
-  <div class="room-block">
-    <strong>Quartos quádruplos</strong>
-    <div class="occupancy-track">
-      <div class="occupancy-bar" id="bar-quad"></div>
-    </div>
-    <p class="occupancy-note" id="text-quad"></p>
-  </div>
-  <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
-</div>    
-<div class="hotel-item">
-  <strong>Hotel principal</strong>
-  <span>Vila Entre Chaves</span><br>
-  <span>Praia dos Morros de Camaragibe, Costa dos Corais, Alagoas</span><br>
-  <span>Hospedagem em um refúgio exclusivo à beira-mar</span><br>
+                <div class="room-block">
+                  <strong>Quartos quádruplos</strong>
+                  <div class="occupancy-track">
+                    <div class="occupancy-bar" id="bar-quad"></div>
+                  </div>
+                  <p class="occupancy-note" id="text-quad"></p>
+                </div>
 
-  <p class="occupancy-note" style="margin-top: 12px;">
-    Confira a localização e o melhor trajeto até o Vila Entre Chaves.
-  </p>
+                <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
+              </div>
 
-  <div class="whatsapp-box">
-    <a
-  class="btn btn-location"
-  href="https://maps.app.goo.gl/ATjcqyLL1pQm8QXm8"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Como chegar
-</a>
-  </div>
-</div>
+              <div class="hotel-item ornament-card">
+                <div class="ornament ornament-coconut" aria-hidden="true">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="28" cy="46" r="15" stroke="currentColor" stroke-width="2"/>
+                    <circle cx="48" cy="46" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M28 31C30 22 36 16 44 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M44 12C53 14 59 18 64 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+
+                <strong>Hotel principal</strong>
+                <span>Vila Entre Chaves</span><br>
+                <span>Praia dos Morros de Camaragibe, Costa dos Corais, Alagoas</span><br>
+                <span>Hospedagem em um refúgio exclusivo à beira-mar</span><br>
+
+                <p class="occupancy-note" style="margin-top: 12px;">
+                  Confira a localização e o melhor trajeto até o Vila Entre Chaves.
+                </p>
+
+                <div class="whatsapp-box">
+                  <a
+                    class="btn btn-location"
+                    href="https://maps.app.goo.gl/ATjcqyLL1pQm8QXm8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Como chegar
+                  </a>
+                </div>
+              </div>
+
               <div class="hotel-item">
                 <strong>Valores das acomodações (03 diárias)</strong>
 
-  <span>Quarto duplo (até 2 pessoas): R$ 5.750,00</span><br>
-  <span>Quarto triplo (até 3 pessoas): R$ 7.500,00</span><br>
-  <span>Quarto quádruplo (até 4 pessoas): R$ 9.100,00</span><br><br>
+                <span>Quarto duplo (até 2 pessoas): R$ 5.750,00</span><br>
+                <span>Quarto triplo (até 3 pessoas): R$ 7.500,00</span><br>
+                <span>Quarto quádruplo (até 4 pessoas): R$ 9.100,00</span><br><br>
 
-  <span>
-    As reservas e pagamentos serão organizados por nossa concierge, que ficará responsável por todo o atendimento e suporte aos convidados.
-  </span>
+                <span>
+                  As reservas e pagamentos serão organizados por nossa concierge, que ficará responsável por todo o atendimento e suporte aos convidados.
+                </span>
+
                 <div class="whatsapp-box">
-<a
-  class="btn btn-location"
-  href="https://wa.me/558299203562?text=Olá!%20Gostaria%20de%20falar%20sobre%20as%20categorias%20de%20quarto%20e%20a%20disponibilidade%20da%20hospedagem%20do%20casamento%20de%20Fabiana%20e%20Rafael."
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Consultar disponibilidade com a concierge
-</a>
-</div>
+                  <a
+                    class="btn btn-location"
+                    href="https://wa.me/558299203562?text=Olá!%20Gostaria%20de%20falar%20sobre%20as%20categorias%20de%20quarto%20e%20a%20disponibilidade%20da%20hospedagem%20do%20casamento%20de%20Fabiana%20e%20Rafael."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Consultar disponibilidade com a concierge
+                  </a>
+                </div>
               </div>
+
               <div class="hotel-item">
                 <strong>Contato e referências</strong>
                 <span>Site: vilaentrechaves.com.br</span><br>
                 <span>Instagram: @vilaentrechaves</span>
               </div>
             </div>
+
             <div class="hotel-list">
               <div class="hotel-item">
                 <strong>Programação</strong>
                 <span>Pré-wedding: 23/09/2027 às 19h00.</span><br>
                 <span>Casamento: 25/09/2027 às 17h00.</span>
               </div>
+
               <div class="hotel-item">
                 <strong>Sobre o local</strong>
                 <span>O Vila Entre Chaves está localizado na Costa dos Corais, em Morros de Camaragibe, e é conhecido pela proposta de hospedagem exclusiva em meio à natureza.</span>
               </div>
+
               <div class="hotel-item">
-                <strong>Importante</strong><span>Os valores informados contemplam 03 diárias com café da manhã, variando conforme a categoria do quarto escolhida. As vagas são limitadas e garantidas mediante pagamento.</span>
+                <strong>Importante</strong>
+                <span>Os valores informados contemplam 03 diárias com café da manhã, variando conforme a categoria do quarto escolhida. As vagas são limitadas e garantidas mediante pagamento.</span>
               </div>
             </div>
           </div>
@@ -650,6 +713,7 @@
       <div class="container">
         <h2 class="section-title">Fotos</h2>
         <p class="section-text">Substitua as imagens abaixo pelas fotos de vocês. Você pode usar links externos ou colocar arquivos na pasta do projeto.</p>
+
         <div class="gallery">
           <img class="wide" src="https://vilaentrechaves.com.br/wp-content/uploads/Foto-banner-1.png" alt="Foto do casal 1">
           <img class="small" src="https://vilaentrechaves.com.br/wp-content/uploads/Corais-2.jpg" alt="Foto do casal 2">
@@ -662,44 +726,53 @@
       </div>
     </section>
 
-<section id="reservas">
-  <div class="container">
-    <div class="card">
-      <h2 class="section-title">Reservas e pagamento</h2>
+    <section id="reservas">
+      <div class="container">
+        <div class="card ornament-card">
+          <div class="ornament ornament-leaf" aria-hidden="true">
+            <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M45 108C45 74 50 42 70 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M46 80C30 70 18 58 10 42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M49 64C30 60 18 55 8 48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M53 48C35 42 22 34 14 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
 
-      <p class="section-text">
-        Para garantir a melhor experiência aos convidados, todas as reservas e pagamentos das acomodações serão realizados com o suporte da nossa concierge.
-      </p>
+          <h2 class="section-title">Reservas e pagamento</h2>
 
-      <div class="meta">
-        <div class="meta-item">
-          <span class="meta-label">Como funciona</span>
-          <strong>
-            A concierge entrará em contato para orientar sobre disponibilidade, escolha do quarto e forma de pagamento.
-          </strong>
-        </div>
+          <p class="section-text">
+            Para garantir a melhor experiência aos convidados, todas as reservas e pagamentos das acomodações serão realizados com o suporte da nossa concierge.
+          </p>
 
-        <div class="meta-item">
-          <span class="meta-label">Importante</span>
-          <strong>
-            As vagas são limitadas e serão confirmadas mediante pagamento.
-          </strong>
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Como funciona</span>
+              <strong>
+                A concierge entrará em contato para orientar sobre disponibilidade, escolha do quarto e forma de pagamento.
+              </strong>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-label">Importante</span>
+              <strong>
+                As vagas são limitadas e serão confirmadas mediante pagamento.
+              </strong>
+            </div>
+          </div>
+
+          <div class="whatsapp-box">
+            <a
+              class="btn btn-location"
+              href="https://wa.me/558299203562?text=Olá!%20Gostaria%20de%20receber%20informações%20sobre%20as%20reservas%20de%20hospedagem%20do%20casamento%20de%20Fabiana%20e%20Rafael."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Falar com a concierge
+            </a>
+          </div>
         </div>
       </div>
-      <div class="whatsapp-box">
- <a
-  class="btn btn-location"
-  href="https://wa.me/558299203562?text=Olá!%20Gostaria%20de%20receber%20informações%20sobre%20as%20reservas%20de%20hospedagem%20do%20casamento%20de%20Fabiana%20e%20Rafael."
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Falar com a concierge
-</a>
-</div>
-    </div>
-  </div>
-</section>
-
+    </section>
   </main>
 
   <footer class="footer container">
@@ -708,28 +781,24 @@
   </footer>
 
   <script>
-// CONFIGURAÇÃO
-const rooms = {
-  duplo: { total: 20, booked: 5 },
-  triplo: { total: 14, booked: 3 },
-  quad: { total: 2, booked: 1 }
-};
+    const rooms = {
+      duplo: { total: 20, booked: 5 },
+      triplo: { total: 14, booked: 3 },
+      quad: { total: 2, booked: 1 }
+    };
 
-// FUNÇÃO PARA ATUALIZAR
-function updateRoom(type) {
-  const data = rooms[type];
-  const percent = (data.booked / data.total) * 100;
+    function updateRoom(type) {
+      const data = rooms[type];
+      const percent = (data.booked / data.total) * 100;
 
-  document.getElementById(`bar-${type}`).style.width = percent + "%";
-  document.getElementById(`text-${type}`).innerText =
-    `${data.booked} de ${data.total} reservados (${data.total - data.booked} disponíveis)`;
-}
+      document.getElementById(`bar-${type}`).style.width = percent + "%";
+      document.getElementById(`text-${type}`).innerText =
+        `${data.booked} de ${data.total} reservados (${data.total - data.booked} disponíveis)`;
+    }
 
-// ATUALIZA TODOS
-updateRoom("duplo");
-updateRoom("triplo");
-updateRoom("quad");
-    
+    updateRoom("duplo");
+    updateRoom("triplo");
+    updateRoom("quad");
 
     const weddingDate = new Date('2027-09-25T17:00:00');
 
@@ -741,44 +810,45 @@ updateRoom("quad");
     const countdownMessageEl = document.getElementById('countdown-message');
 
     function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate - now;
+      const now = new Date();
+      const diff = weddingDate - now;
 
-  if (diff <= 0) {
-    daysEl.textContent = '0';
-    hoursEl.textContent = '0';
-    minutesEl.textContent = '0';
-    secondsEl.textContent = '0';
+      if (diff <= 0) {
+        daysEl.textContent = '0';
+        hoursEl.textContent = '0';
+        minutesEl.textContent = '0';
+        secondsEl.textContent = '0';
 
-    if (countdownDateEl) {
-      countdownDateEl.textContent = 'Hoje é o grande dia!';
+        if (countdownDateEl) {
+          countdownDateEl.textContent = 'Hoje é o grande dia!';
+        }
+
+        if (countdownMessageEl) {
+          countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
+        }
+
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = String(hours).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(seconds).padStart(2, '0');
+
+      if (countdownDateEl) {
+        countdownDateEl.textContent = '25 de setembro de 2027, às 17h00';
+      }
+
+      if (countdownMessageEl) {
+        countdownMessageEl.textContent = '';
+      }
     }
 
-    if (countdownMessageEl) {
-      countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
-    }
-
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  daysEl.textContent = days;
-  hoursEl.textContent = String(hours).padStart(2, '0');
-  minutesEl.textContent = String(minutes).padStart(2, '0');
-  secondsEl.textContent = String(seconds).padStart(2, '0');
-
-  if (countdownDateEl) {
-    countdownDateEl.textContent = '25 de setembro de 2027, às 17h00';
-  }
-
-  if (countdownMessageEl) {
-    countdownMessageEl.textContent = '';
-  }
-}
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>

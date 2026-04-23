@@ -448,7 +448,7 @@
             </div>
             <div class="meta-item">
               <span class="meta-label">Horário</span>
-              <strong>Pré-wedding em 23/09 às 19h00 | Casamento em 25/09 às 17h00</strong>
+              <strong>Pré-wedding em 23/09 | Casamento em 25/09</strong>
             </div>
             <div class="meta-item">
               <span class="meta-label">Local</span>
@@ -485,7 +485,7 @@
           <div class="meta" style="margin-top: 18px;">
             <div class="meta-item">
               <span class="meta-label">Casamento</span>
-              <strong id="countdown-date">25 de setembro de 2027, às 17h00</strong>
+              <strong id="countdown-date">25 de setembro de 2027</strong>
             </div>
           </div>
 
@@ -625,17 +625,17 @@
                 </p>
 
                 <div class="meta" style="margin-top: 14px;">
-                  <div class="meta-item">
-                    <span class="meta-label">23 de setembro de 2027</span>
-                    <strong>Pré-wedding</strong>
-                    <span>A partir das 19h00</span>
-                  </div>
+                 <div class="meta-item">
+  <span class="meta-label">23 de setembro de 2027</span>
+  <strong>Pré-wedding</strong>
+  <span>Horário a ser confirmado</span>
+</div>
 
-                  <div class="meta-item">
-                    <span class="meta-label">25 de setembro de 2027</span>
-                    <strong>Casamento</strong>
-                    <span>Às 17h00</span>
-                  </div>
+<div class="meta-item">
+  <span class="meta-label">25 de setembro de 2027</span>
+  <strong>Casamento</strong>
+  <span>Horário a ser confirmado</span>
+</div>
                 </div>
               </div>
 
@@ -736,7 +736,7 @@
     updateRoom("triplo");
     updateRoom("quad");
 
-    const weddingDate = new Date('2027-09-25T17:00:00');
+    const weddingDate = new Date('2027-09-25T12:00:00');
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -777,7 +777,7 @@
       secondsEl.textContent = String(seconds).padStart(2, '0');
 
       if (countdownDateEl) {
-        countdownDateEl.textContent = '25 de setembro de 2027, às 17h00';
+        countdownDateEl.textContent = '25 de setembro de 2027';
       }
 
       if (countdownMessageEl) {

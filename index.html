@@ -590,23 +590,27 @@
   </footer>
 
   <script>
-    const totalRooms = 40;
-    const bookedRooms = 5;
+// CONFIGURAÇÃO
+const rooms = {
+  duplo: { total: 20, booked: 5 },
+  triplo: { total: 14, booked: 3 },
+  quad: { total: 2, booked: 1 }
+};
 
-    function updateOccupancy() {
-      const occupancyBar = document.getElementById('occupancy-bar');
-      const occupancyLabel = document.getElementById('occupancy-label');
-      const availabilityLabel = document.getElementById('availability-label');
+// FUNÇÃO PARA ATUALIZAR
+function updateRoom(type) {
+  const data = rooms[type];
+  const percent = (data.booked / data.total) * 100;
 
-      if (!occupancyBar || !occupancyLabel || !availabilityLabel) return;
+  document.getElementById(`bar-${type}`).style.width = percent + "%";
+  document.getElementById(`text-${type}`).innerText =
+    `${data.booked} de ${data.total} reservados (${data.total - data.booked} disponíveis)`;
+}
 
-      const safeBookedRooms = Math.min(Math.max(bookedRooms, 0), totalRooms);
-      const availableRooms = Math.max(totalRooms - safeBookedRooms, 0);
-      const percentage = totalRooms > 0 ? (safeBookedRooms / totalRooms) * 100 : 0;
-
-      occupancyBar.style.width = `${percentage}%`;
-      occupancyLabel.textContent = `${safeBookedRooms} de ${totalRooms} quartos reservados`;
-      availabilityLabel.textContent = `${availableRooms} disponíveis`;
+// ATUALIZA TODOS
+updateRoom("duplo");
+updateRoom("triplo");
+updateRoom("quad");
     }
 
     const weddingDate = new Date('2027-09-25T17:00:00');

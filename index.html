@@ -481,7 +481,7 @@
           </div>
         </div>
 
-        <div class="card">
+<div class="card">
   <h3>Estamos contando os dias</h3>
   <p class="section-text">
     Até o casamento de Fabiana & Rafael em Morros de Camaragibe.
@@ -505,6 +505,12 @@
       <span class="countdown-label">segundos</span>
     </div>
   </div>
+
+  <p class="section-text" id="countdown-date" style="margin-top: 18px; margin-bottom: 0;">
+    Casamento em 25 de setembro de 2027, às 17h00.
+  </p>
+
+  <p class="section-text" id="countdown-message" style="margin-top: 12px; margin-bottom: 0;"></p>
 </div>
     </section>
 
@@ -692,20 +698,44 @@ updateRoom("quad");
     const countdownMessageEl = document.getElementById('countdown-message');
 
     function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
+  const now = new Date();
+  const diff = weddingDate - now;
 
-     if (diff <= 0) {
-  daysEl.textContent = '0';
-  hoursEl.textContent = '0';
-  minutesEl.textContent = '0';
-  secondsEl.textContent = '0';
+  if (diff <= 0) {
+    daysEl.textContent = '0';
+    hoursEl.textContent = '0';
+    minutesEl.textContent = '0';
+    secondsEl.textContent = '0';
 
-  countdownDateEl.textContent = 'Hoje é o grande dia!';
-  countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
-  return;
+    if (countdownDateEl) {
+      countdownDateEl.textContent = 'Hoje é o grande dia!';
+    }
+
+    if (countdownMessageEl) {
+      countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
+    }
+
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  daysEl.textContent = days;
+  hoursEl.textContent = String(hours).padStart(2, '0');
+  minutesEl.textContent = String(minutes).padStart(2, '0');
+  secondsEl.textContent = String(seconds).padStart(2, '0');
+
+  if (countdownDateEl) {
+    countdownDateEl.textContent = 'Casamento em 25 de setembro de 2027, às 17h00.';
+  }
+
+  if (countdownMessageEl) {
+    countdownMessageEl.textContent = '';
+  }
 }
-      }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);

@@ -240,26 +240,41 @@
     }
 
     .countdown-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 20px 12px;
-      text-align: center;
-    }
+  background: linear-gradient(180deg, #fff 0%, #fcf7f3 100%);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px 14px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(77, 52, 39, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-    .countdown-number {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      line-height: 1;
-      font-weight: 700;
-      color: var(--accent-dark);
-    }
+.countdown-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(77, 52, 39, 0.10);
+}
 
-    .countdown-label {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+.countdown-highlight {
+  background: linear-gradient(180deg, #fff7f1 0%, #f8ede5 100%);
+  border-color: #dcc5b6;
+}
+
+.countdown-number {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1;
+  font-weight: 700;
+  color: var(--accent-dark);
+  letter-spacing: -0.03em;
+}
+
+.countdown-label {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
 
     .hotel-list {
       display: grid;
@@ -467,28 +482,30 @@
         </div>
 
         <div class="card">
-          <h3>Contagem regressiva</h3>
-          <p class="section-text"></p>
-          <div class="countdown" id="countdown">
-            <div class="countdown-box">
-              <span class="countdown-number" id="days">--</span>
-              <span class="countdown-label">dias</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="hours">--</span>
-              <span class="countdown-label">horas</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="minutes">--</span>
-              <span class="countdown-label">min</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="seconds">--</span>
-              <span class="countdown-label">seg</span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <h3>Estamos contando os dias</h3>
+  <p class="section-text">
+    Até o casamento de Fabiana & Rafael em Morros de Camaragibe.
+  </p>
+
+  <div class="countdown" id="countdown">
+    <div class="countdown-box countdown-highlight">
+      <span class="countdown-number" id="days">--</span>
+      <span class="countdown-label">dias</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-number" id="hours">--</span>
+      <span class="countdown-label">horas</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-number" id="minutes">--</span>
+      <span class="countdown-label">minutos</span>
+    </div>
+    <div class="countdown-box">
+      <span class="countdown-number" id="seconds">--</span>
+      <span class="countdown-label">segundos</span>
+    </div>
+  </div>
+</div>
     </section>
 
     <section id="hospedagem">
@@ -671,17 +688,23 @@ updateRoom("quad");
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
+    const countdownDateEl = document.getElementById('countdown-date');
+    const countdownMessageEl = document.getElementById('countdown-message');
 
     function updateCountdown() {
       const now = new Date();
       const diff = weddingDate - now;
 
-      if (diff <= 0) {
-        daysEl.textContent = '0';
-        hoursEl.textContent = '0';
-        minutesEl.textContent = '0';
-        secondsEl.textContent = '0';
-        return;
+     if (diff <= 0) {
+  daysEl.textContent = '0';
+  hoursEl.textContent = '0';
+  minutesEl.textContent = '0';
+  secondsEl.textContent = '0';
+
+  countdownDateEl.textContent = 'Hoje é o grande dia!';
+  countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
+  return;
+}
       }
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));

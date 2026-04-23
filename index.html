@@ -17,6 +17,9 @@
       --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
       --radius: 24px;
       --max: 1120px;
+      .room-block {
+  margin-bottom: 20px;
+}
     }
 
     * { box-sizing: border-box; }
@@ -483,11 +486,36 @@
           <div class="grid grid-2">
             <div class="hotel-list">
               <div class="hotel-item">
-                <strong>Disponibilidade de quartos</strong>
-                <div class="occupancy-wrap">
-                  <div class="occupancy-head">
-                    <span id="occupancy-label">5 de 40 quartos reservados</span>
-                    <span id="availability-label">35 disponíveis</span>
+<div class="card">
+  <h3>Disponibilidade de quartos</h3>
+
+  <!-- DUPLO -->
+  <div class="room-block">
+    <strong>Quartos duplos</strong>
+    <div class="progress">
+      <div class="progress-bar" id="bar-duplo"></div>
+    </div>
+    <p id="text-duplo"></p>
+  </div>
+
+  <!-- TRIPLO -->
+  <div class="room-block">
+    <strong>Quartos triplos</strong>
+    <div class="progress">
+      <div class="progress-bar" id="bar-triplo"></div>
+    </div>
+    <p id="text-triplo"></p>
+  </div>
+
+  <!-- QUADRUPLO -->
+  <div class="room-block">
+    <strong>Quartos quádruplos</strong>
+    <div class="progress">
+      <div class="progress-bar" id="bar-quad"></div>
+    </div>
+    <p id="text-quad"></p>
+  </div>
+</div>
                   </div>
                   <div class="occupancy-track">
                     <div class="occupancy-bar" id="occupancy-bar"></div>

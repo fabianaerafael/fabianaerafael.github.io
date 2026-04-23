@@ -17,6 +17,8 @@
       --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
       --radius: 24px;
       --max: 1180px;
+      --success-bg: #eef7f0;
+      --success-text: #3f6b4c;
     }
 
     * { box-sizing: border-box; }
@@ -212,17 +214,18 @@
     }
 
     .gift-price {
-      margin-top: 6px;
-      font-size: 1.35rem;
+      margin-top: 10px;
+      font-size: 1.45rem;
       font-weight: 700;
       color: var(--accent-dark);
+      letter-spacing: -0.01em;
     }
 
     .gift-actions {
       display: flex;
       gap: 10px;
       margin-top: auto;
-      padding-top: 8px;
+      padding-top: 10px;
       flex-wrap: wrap;
     }
 
@@ -343,6 +346,16 @@
       border-radius: 14px;
     }
 
+    .success-message {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-size: 0.94rem;
+    }
+
     .footnote {
       margin-top: 16px;
       padding-top: 14px;
@@ -424,7 +437,7 @@
             <span class="eyebrow">Lista de presentes</span>
             <h1>Ajude a criar memórias com a gente</h1>
             <p class="subtitle">
-              Criamos uma lista de experiências especiais para tornar essa fase ainda mais inesquecível. Fique à vontade para escolher uma delas.
+              Selecionamos algumas experiências especiais para celebrar esse momento com leveza e carinho. Se quiser, você pode nos presentear com uma delas.
             </p>
           </div>
           <div class="hero-photo" aria-label="Imagem decorativa da página de presentes"></div>
@@ -436,58 +449,58 @@
       <div class="container">
         <h2 class="section-title">Escolha um presente</h2>
         <p class="section-text">
-          Pensamos com carinho em uma forma especial de celebrar esse momento com vocês. Por isso, nossa lista de presentes foi transformada em experiências que farão parte das nossas memórias.
+          Em vez de presentes tradicionais, escolhemos reunir experiências que poderão fazer parte das nossas memórias dessa nova fase.
         </p>
 
         <div class="gift-grid">
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80" alt="Drinks do casal" />
+            <img class="gift-image" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80" alt="Brinde à beira-mar" />
             <div class="gift-body">
               <span class="gift-tag">Experiência</span>
-              <h3 class="gift-title">Drinks do casal na praia</h3>
-              <p class="gift-text">Um brinde especial para começarmos essa nova fase com o pé direito.</p>
+              <h3 class="gift-title">Brinde à beira-mar</h3>
+              <p class="gift-text">Um brinde especial para celebrarmos com leveza o início dessa nova fase.</p>
               <div class="gift-price">R$ 300,00</div>
               <div class="gift-actions">
-                <button class="btn btn-primary gift-button" data-title="Drinks do casal na praia" data-price="R$ 300,00" data-qr="qr-300.png">Ver QR Code</button>
+                <button class="btn btn-primary gift-button" data-title="Brinde à beira-mar" data-price="R$ 300,00" data-qr="qr-300.png">Ver QR Code</button>
               </div>
             </div>
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Jantar romântico" />
+            <img class="gift-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Jantar especial a dois" />
             <div class="gift-body">
-              <span class="gift-tag">Momento a dois</span>
-              <h3 class="gift-title">Jantar romântico</h3>
-              <p class="gift-text">Uma noite especial celebrando o amor, a boa comida e as boas lembranças.</p>
+              <span class="gift-tag">A dois</span>
+              <h3 class="gift-title">Jantar especial a dois</h3>
+              <p class="gift-text">Uma noite para celebrarmos o amor, a boa comida e os momentos que ficam na memória.</p>
               <div class="gift-price">R$ 450,00</div>
               <div class="gift-actions">
-                <button class="btn btn-primary gift-button" data-title="Jantar romântico" data-price="R$ 450,00" data-qr="qr-450.png">Ver QR Code</button>
+                <button class="btn btn-primary gift-button" data-title="Jantar especial a dois" data-price="R$ 450,00" data-qr="qr-450.png">Ver QR Code</button>
               </div>
             </div>
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Passeio especial" />
+            <img class="gift-image" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Passeio pelo litoral" />
             <div class="gift-body">
               <span class="gift-tag">Passeio</span>
-              <h3 class="gift-title">Passeio inesquecível</h3>
-              <p class="gift-text">Um momento fora da rotina para aproveitar a viagem com leveza e alegria.</p>
+              <h3 class="gift-title">Passeio pelo litoral</h3>
+              <p class="gift-text">Um momento especial para explorarmos paisagens lindas e aproveitarmos a viagem com leveza.</p>
               <div class="gift-price">R$ 600,00</div>
               <div class="gift-actions">
-                <button class="btn btn-primary gift-button" data-title="Passeio inesquecível" data-price="R$ 600,00" data-qr="qr-600.png">Ver QR Code</button>
+                <button class="btn btn-primary gift-button" data-title="Passeio pelo litoral" data-price="R$ 600,00" data-qr="qr-600.png">Ver QR Code</button>
               </div>
             </div>
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Spa relaxante" />
+            <img class="gift-image" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Experiência de relaxamento" />
             <div class="gift-body">
-              <span class="gift-tag">Relax</span>
-              <h3 class="gift-title">Spa para relaxar</h3>
-              <p class="gift-text">Depois da correria, um presente para descansar e aproveitar o momento.</p>
+              <span class="gift-tag">Bem-estar</span>
+              <h3 class="gift-title">Experiência de relaxamento</h3>
+              <p class="gift-text">Depois da correria, um presente para desacelerar e aproveitar esse momento com calma.</p>
               <div class="gift-price">R$ 850,00</div>
               <div class="gift-actions">
-                <button class="btn btn-primary gift-button" data-title="Spa para relaxar" data-price="R$ 850,00" data-qr="qr-850.png">Ver QR Code</button>
+                <button class="btn btn-primary gift-button" data-title="Experiência de relaxamento" data-price="R$ 850,00" data-qr="qr-850.png">Ver QR Code</button>
               </div>
             </div>
           </article>
@@ -495,9 +508,9 @@
           <article class="gift-card">
             <img class="gift-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Passeio de barco" />
             <div class="gift-body">
-              <span class="gift-tag">Experiência premium</span>
+              <span class="gift-tag">Especial</span>
               <h3 class="gift-title">Passeio de barco</h3>
-              <p class="gift-text">Um presente para explorar paisagens lindas e guardar memórias incríveis.</p>
+              <p class="gift-text">Uma experiência especial para conhecermos cenários incríveis e guardarmos lembranças inesquecíveis.</p>
               <div class="gift-price">R$ 1.500,00</div>
               <div class="gift-actions">
                 <button class="btn btn-primary gift-button" data-title="Passeio de barco" data-price="R$ 1.500,00" data-qr="qr-1500.png">Ver QR Code</button>
@@ -506,21 +519,21 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=900&q=80" alt="Cota da lua de mel" />
+            <img class="gift-image" src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=900&q=80" alt="Momento da lua de mel" />
             <div class="gift-body">
-              <span class="gift-tag">Presente especial</span>
-              <h3 class="gift-title">Cota da lua de mel</h3>
-              <p class="gift-text">Uma ajuda carinhosa para tornar a nossa viagem ainda mais especial.</p>
+              <span class="gift-tag">Lua de mel</span>
+              <h3 class="gift-title">Momento da lua de mel</h3>
+              <p class="gift-text">Uma contribuição especial para tornar nossa viagem ainda mais marcante e cheia de boas memórias.</p>
               <div class="gift-price">R$ 2.000,00</div>
               <div class="gift-actions">
-                <button class="btn btn-primary gift-button" data-title="Cota da lua de mel" data-price="R$ 2.000,00" data-qr="qr-2000.png">Ver QR Code</button>
+                <button class="btn btn-primary gift-button" data-title="Momento da lua de mel" data-price="R$ 2.000,00" data-qr="qr-2000.png">Ver QR Code</button>
               </div>
             </div>
           </article>
         </div>
 
         <div class="note-box">
-          <strong>Nota importante:</strong> antes de concluir o presente, confira se o beneficiário exibido no pagamento é <strong>Rafael Trigo Rizzuto</strong>. Depois, se quiser, envie o comprovante aos noivos.
+          <strong>Nota importante:</strong> antes de concluir o presente, pedimos a gentileza de confirmar se o beneficiário exibido no pagamento é <strong>Rafael Trigo Rizzuto</strong>.
         </div>
       </div>
     </section>
@@ -534,7 +547,7 @@
       <div class="modal-price" id="modal-price">R$ 0,00</div>
 
       <p class="modal-text">
-        Faça o pagamento pelo QR Code abaixo e, se quiser, deixe uma mensagem para nós ❤️
+        Faça o pagamento pelo QR Code abaixo e, se quiser, deixe uma mensagem para nós. Obrigado por fazer parte desse momento com a gente.
       </p>
 
       <div class="qr-frame">
@@ -554,12 +567,12 @@
         </button>
       </form>
 
-      <div id="success-message" style="display:none; margin-top:12px; color:green;">
-        Mensagem enviada com sucesso ❤️
+      <div id="success-message" class="success-message">
+        Mensagem enviada com sucesso. Obrigado pelo carinho.
       </div>
 
       <div class="footnote">
-        Antes de pagar, confirme se o beneficiário é <strong>Rafael Trigo Rizzuto</strong>.
+        Antes de concluir o pagamento, confirme se o beneficiário exibido é <strong>Rafael Trigo Rizzuto</strong>.
       </div>
     </div>
   </div>

@@ -511,11 +511,8 @@
     </div>
     <p class="occupancy-note" id="text-quad"></p>
   </div>
-</div>
-                  </div>
-                  <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
-                </div>
-              </div>
+  <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
+</div>    
               <div class="hotel-item">
                 <strong>Hotel principal</strong>
                 <span>Vila Entre Chaves</span><br>
@@ -664,7 +661,6 @@ updateRoom("quad");
       secondsEl.textContent = String(seconds).padStart(2, '0');
     }
 
-    updateOccupancy();
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>

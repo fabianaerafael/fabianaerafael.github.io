@@ -283,15 +283,15 @@
       display: flex;
     }
 
-    .modal-card {
-      width: min(100%, 460px);
-      background: #fffdfb;
-      border-radius: 28px;
-      box-shadow: 0 24px 60px rgba(35, 21, 15, 0.2);
-      padding: 24px;
-      position: relative;
-      border: 1px solid rgba(255,255,255,0.95);
-    }
+.modal-card {
+  width: min(100%, 400px);
+  background: #fffdfb;
+  border-radius: 28px;
+  box-shadow: 0 24px 60px rgba(35, 21, 15, 0.2);
+  padding: 20px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.95);
+}
 
     .modal-close {
       position: absolute;
@@ -327,17 +327,17 @@
       margin-bottom: 16px;
     }
 
-    .qr-frame {
-      width: min(100%, 280px);
-      aspect-ratio: 1 / 1;
-      margin: 0 auto 14px;
-      border: 2px dashed var(--accent);
-      border-radius: 24px;
-      display: grid;
-      place-items: center;
-      padding: 16px;
-      background: #fff;
-    }
+.qr-frame {
+  width: min(100%, 190px);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto 14px;
+  border: 2px dashed var(--accent);
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  background: #fff;
+}
 
     .qr-frame img {
       width: 100%;
@@ -394,6 +394,15 @@
     }
 
     @media (max-width: 680px) {
+      .modal-card {
+  width: min(100%, 360px);
+  padding: 18px;
+}
+
+.qr-frame {
+  width: min(100%, 160px);
+  padding: 8px;
+}
       .gift-grid {
         grid-template-columns: 1fr;
       }

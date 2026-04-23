@@ -255,8 +255,9 @@
 }
 
 .countdown-highlight {
-  background: linear-gradient(180deg, #fff7f1 0%, #f8ede5 100%);
-  border-color: #dcc5b6;
+  background: linear-gradient(180deg, #fff7f1 0%, #f4e6da 100%);
+  border-color: #d7b9a3;
+  transform: scale(1.02);
 }
 
 .countdown-number {
@@ -482,10 +483,10 @@
         </div>
 
 <div class="card">
-  <h3>Estamos contando os dias</h3>
-  <p class="section-text">
-    Até o casamento de Fabiana & Rafael em Morros de Camaragibe.
-  </p>
+  <h2 class="section-title">Estamos contando os dias</h2>
+<p class="section-text">
+  Contagem regressiva para o nosso grande dia.
+</p>
 
   <div class="countdown" id="countdown">
     <div class="countdown-box countdown-highlight">
@@ -506,11 +507,14 @@
     </div>
   </div>
 
-  <p class="section-text" id="countdown-date" style="margin-top: 18px; margin-bottom: 0;">
-    Casamento em 25 de setembro de 2027, às 17h00.
-  </p>
+<div class="meta" style="margin-top: 18px;">
+  <div class="meta-item">
+    <span class="meta-label">Casamento</span>
+    <strong id="countdown-date">25 de setembro de 2027, às 17h00</strong>
+  </div>
+</div>
 
-  <p class="section-text" id="countdown-message" style="margin-top: 12px; margin-bottom: 0;"></p>
+  <p class="section-text" id="countdown-message" style="margin-top: 14px; margin-bottom: 0; text-align: center;"></p>
 </div>
     </section>
 
@@ -729,7 +733,7 @@ updateRoom("quad");
   secondsEl.textContent = String(seconds).padStart(2, '0');
 
   if (countdownDateEl) {
-    countdownDateEl.textContent = 'Casamento em 25 de setembro de 2027, às 17h00.';
+    countdownDateEl.textContent = '25 de setembro de 2027, às 17h00';
   }
 
   if (countdownMessageEl) {

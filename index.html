@@ -60,11 +60,14 @@
       padding: 14px 0;
     }
 
-    .brand {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.08em;
-    }
+.brand {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+}
 
     .nav {
       display: flex;
@@ -425,10 +428,10 @@
     }
   </style>
 </head>
-<body>
+  <body id="topo">
   <header class="topbar">
     <div class="container topbar-inner">
-      <div class="brand">Fabiana & Rafael</div>
+      <a href="#topo" class="brand">Fabiana & Rafael</a>
       <nav class="nav">
   <a href="#data">Data</a>
   <a href="#hospedagem">Hospedagem</a>

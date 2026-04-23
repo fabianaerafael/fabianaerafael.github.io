@@ -367,49 +367,6 @@
       gap: 12px;
     }
 
-    .ornament-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .ornament {
-      position: absolute;
-      pointer-events: none;
-      opacity: 0.18;
-      color: #b98f72;
-      z-index: 0;
-    }
-
-    .ornament svg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-.ornament-palm-top {
-  top: 10px;
-  right: 12px;
-  width: 120px;
-}
-
-.ornament-palm-hero {
-  top: 18px;
-  right: 18px;
-  width: 140px;
-}
-
-.ornament-coconut {
-  bottom: 12px;
-  left: 14px;
-  width: 76px;
-}
-
-.ornament-leaf {
-  top: 10px;
-  right: 12px;
-  width: 96px;
-}
-
     .footer {
       padding: 40px 0 60px;
       text-align: center;
@@ -435,30 +392,6 @@
       .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .nav { gap: 6px; }
       .nav a { padding: 8px 10px; font-size: 0.94rem; }
-
-      .ornament-palm-top {
-        width: 70px;
-        top: 12px;
-        right: 12px;
-      }
-
-      .ornament-palm-hero {
-        width: 78px;
-        top: 14px;
-        right: 14px;
-      }
-
-      .ornament-coconut {
-        width: 44px;
-        left: 12px;
-        bottom: 10px;
-      }
-
-      .ornament-leaf {
-        width: 56px;
-        top: 12px;
-        right: 12px;
-      }
     }
   </style>
 </head>
@@ -479,28 +412,13 @@
   <main>
     <section class="hero">
       <div class="container">
-        <div class="hero-card ornament-card">
-          <div class="ornament ornament-palm-hero" aria-hidden="true">
-            <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M56 150C58 120 60 90 67 64" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M68 63C83 55 95 45 104 29" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M68 63C88 67 103 66 117 59" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C83 79 93 93 99 108" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C54 49 43 39 28 31" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C48 65 30 63 14 55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C50 76 38 89 31 104" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <circle cx="67" cy="63" r="3" fill="currentColor"/>
-              <circle cx="61" cy="68" r="2.5" fill="currentColor"/>
-              <circle cx="73" cy="68" r="2.5" fill="currentColor"/>
-            </svg>
-          </div>
-
+        <div class="hero-card">
           <div class="hero-content">
             <span class="eyebrow">Nosso casamento</span>
             <h1>Fabiana <br>& Rafael</h1>
-<p class="subtitle">
-  Estamos muito felizes em celebrar esse momento com vocês. Reunimos aqui as principais informações sobre o casamento, a hospedagem e as reservas para que todos possam aproveitar esse momento tão especial conosco.
-</p>
+            <p class="subtitle">
+              Estamos muito felizes em celebrar esse momento com vocês. Reunimos aqui as principais informações sobre o casamento, a hospedagem e as reservas para que todos possam aproveitar esse momento tão especial conosco.
+            </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#hospedagem">Ver hospedagem</a>
               <a class="btn btn-secondary" href="#reservas">Reservas e pagamento</a>
@@ -534,22 +452,7 @@
           </div>
         </div>
 
-        <div class="card ornament-card">
-          <div class="ornament ornament-palm-top" aria-hidden="true">
-            <svg viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M56 150C58 120 60 90 67 64" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M68 63C83 55 95 45 104 29" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M68 63C88 67 103 66 117 59" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C83 79 93 93 99 108" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C54 49 43 39 28 31" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C48 65 30 63 14 55" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M67 63C50 76 38 89 31 104" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <circle cx="67" cy="63" r="3" fill="currentColor"/>
-              <circle cx="61" cy="68" r="2.5" fill="currentColor"/>
-              <circle cx="73" cy="68" r="2.5" fill="currentColor"/>
-            </svg>
-          </div>
-
+        <div class="card">
           <h2 class="section-title">Estamos contando os dias</h2>
           <p class="section-text">
             Contagem regressiva para o nosso grande dia.
@@ -590,9 +493,9 @@
       <div class="container">
         <div class="card">
           <h2 class="section-title">Informações de hospedagem</h2>
-<p class="section-text">
-  A hospedagem no Vila Entre Chaves, local dos nossos eventos, está prevista para 03 diárias com café da manhã, em um cenário especial à beira-mar para celebrarmos juntos.
-</p>
+          <p class="section-text">
+            A hospedagem no Vila Entre Chaves, local dos nossos eventos, está prevista para 03 diárias com café da manhã, em um cenário especial à beira-mar para celebrarmos juntos.
+          </p>
 
           <div class="grid grid-2">
             <div class="hotel-list">
@@ -626,24 +529,15 @@
                 <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
               </div>
 
-              <div class="hotel-item ornament-card">
-                <div class="ornament ornament-coconut" aria-hidden="true">
-                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="28" cy="46" r="15" stroke="currentColor" stroke-width="2"/>
-                    <circle cx="48" cy="46" r="15" stroke="currentColor" stroke-width="2"/>
-                    <path d="M28 31C30 22 36 16 44 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M44 12C53 14 59 18 64 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                </div>
-
+              <div class="hotel-item">
                 <strong>Hotel principal</strong>
                 <span>Vila Entre Chaves</span><br>
                 <span>Praia dos Morros de Camaragibe, Costa dos Corais, Alagoas</span><br>
                 <span>Hospedagem em um refúgio exclusivo à beira-mar</span><br>
 
-<p class="occupancy-note" style="margin-top: 12px;">
-  Confira a localização do Vila Entre Chaves e o melhor trajeto para chegar ao local.
-</p>
+                <p class="occupancy-note" style="margin-top: 12px;">
+                  Confira a localização do Vila Entre Chaves e o melhor trajeto para chegar ao local.
+                </p>
 
                 <div class="whatsapp-box">
                   <a
@@ -664,9 +558,9 @@
                 <span>Quarto triplo (até 3 pessoas): R$ 7.500,00</span><br>
                 <span>Quarto quádruplo (até 4 pessoas): R$ 9.100,00</span><br><br>
 
-<span>
-  As reservas e os pagamentos serão organizados por nossa concierge, que ficará responsável por orientar os convidados sobre disponibilidade, categoria de quarto e confirmação da hospedagem.
-</span>
+                <span>
+                  As reservas e os pagamentos serão organizados por nossa concierge, que ficará responsável por orientar os convidados sobre disponibilidade, categoria de quarto e confirmação da hospedagem.
+                </span>
 
                 <div class="whatsapp-box">
                   <a
@@ -696,12 +590,12 @@
 
               <div class="hotel-item">
                 <strong>Sobre o local</strong>
-              <span>Localizado na Costa dos Corais, em Morros de Camaragibe, o Vila Entre Chaves oferece uma experiência de hospedagem exclusiva, cercada pela natureza e pelo clima especial do litoral alagoano.</span>
+                <span>Localizado na Costa dos Corais, em Morros de Camaragibe, o Vila Entre Chaves oferece uma experiência de hospedagem exclusiva, cercada pela natureza e pelo clima especial do litoral alagoano.</span>
               </div>
 
               <div class="hotel-item">
                 <strong>Importante</strong>
-               <span>Os valores informados contemplam 03 diárias com café da manhã e variam conforme a categoria do quarto escolhida. Como as vagas são limitadas, a hospedagem será confirmada mediante pagamento.</span>
+                <span>Os valores informados contemplam 03 diárias com café da manhã e variam conforme a categoria do quarto escolhida. Como as vagas são limitadas, a hospedagem será confirmada mediante pagamento.</span>
               </div>
             </div>
           </div>
@@ -712,7 +606,7 @@
     <section id="fotos">
       <div class="container">
         <h2 class="section-title">Fotos</h2>
-        <p class="section-text">Substitua as imagens abaixo pelas fotos de vocês. Você pode usar links externos ou colocar arquivos na pasta do projeto.</p>
+        <p class="section-text">Um pouco da nossa história até aqui, em imagens que guardam momentos especiais dessa caminhada.</p>
 
         <div class="gallery">
           <img class="wide" src="https://vilaentrechaves.com.br/wp-content/uploads/Foto-banner-1.png" alt="Foto do casal 1">
@@ -728,35 +622,26 @@
 
     <section id="reservas">
       <div class="container">
-        <div class="card ornament-card">
-          <div class="ornament ornament-leaf" aria-hidden="true">
-            <svg viewBox="0 0 90 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M45 108C45 74 50 42 70 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M46 80C30 70 18 58 10 42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M49 64C30 60 18 55 8 48" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <path d="M53 48C35 42 22 34 14 24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-
+        <div class="card">
           <h2 class="section-title">Reservas e pagamento</h2>
 
-<p class="section-text">
-  Para tornar esse processo mais prático e organizado, todas as reservas e os pagamentos das acomodações serão realizados com o suporte da nossa concierge.
-</p>
+          <p class="section-text">
+            Para tornar esse processo mais prático e organizado, todas as reservas e os pagamentos das acomodações serão realizados com o suporte da nossa concierge.
+          </p>
 
           <div class="meta">
             <div class="meta-item">
               <span class="meta-label">Como funciona</span>
-<strong>
-  A concierge fará o atendimento dos convidados, orientando sobre disponibilidade, categoria de quarto e forma de pagamento.
-</strong>
+              <strong>
+                A concierge fará o atendimento dos convidados, orientando sobre disponibilidade, categoria de quarto e forma de pagamento.
+              </strong>
             </div>
 
             <div class="meta-item">
               <span class="meta-label">Importante</span>
-<strong>
-  As vagas são limitadas e a hospedagem será confirmada após a finalização do pagamento.
-</strong>
+              <strong>
+                As vagas são limitadas e a hospedagem será confirmada após a finalização do pagamento.
+              </strong>
             </div>
           </div>
 
@@ -777,7 +662,7 @@
 
   <footer class="footer container">
     <div class="divider"></div>
-<p>Com carinho, Fabiana & Rafael.</p>
+    <p>Com carinho, Fabiana & Rafael.</p>
   </footer>
 
   <script>

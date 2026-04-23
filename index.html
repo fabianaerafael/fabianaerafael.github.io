@@ -17,10 +17,10 @@
       --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
       --radius: 24px;
       --max: 1120px;
-      .room-block {
+    }
+.room-block {
   margin-bottom: 20px;
 }
-    }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -486,39 +486,32 @@
           <div class="grid grid-2">
             <div class="hotel-list">
               <div class="hotel-item">
-<div class="card">
-  <h3>Disponibilidade de quartos</h3>
+  <strong>Disponibilidade de quartos</strong>
 
-  <!-- DUPLO -->
   <div class="room-block">
     <strong>Quartos duplos</strong>
-    <div class="progress">
-      <div class="progress-bar" id="bar-duplo"></div>
+    <div class="occupancy-track">
+      <div class="occupancy-bar" id="bar-duplo"></div>
     </div>
-    <p id="text-duplo"></p>
+    <p class="occupancy-note" id="text-duplo"></p>
   </div>
 
-  <!-- TRIPLO -->
   <div class="room-block">
     <strong>Quartos triplos</strong>
-    <div class="progress">
-      <div class="progress-bar" id="bar-triplo"></div>
+    <div class="occupancy-track">
+      <div class="occupancy-bar" id="bar-triplo"></div>
     </div>
-    <p id="text-triplo"></p>
+    <p class="occupancy-note" id="text-triplo"></p>
   </div>
 
-  <!-- QUADRUPLO -->
   <div class="room-block">
     <strong>Quartos quádruplos</strong>
-    <div class="progress">
-      <div class="progress-bar" id="bar-quad"></div>
+    <div class="occupancy-track">
+      <div class="occupancy-bar" id="bar-quad"></div>
     </div>
-    <p id="text-quad"></p>
+    <p class="occupancy-note" id="text-quad"></p>
   </div>
 </div>
-                  </div>
-                  <div class="occupancy-track">
-                    <div class="occupancy-bar" id="occupancy-bar"></div>
                   </div>
                   <div class="occupancy-note">A ocupação é atualizada conforme as reservas forem confirmadas.</div>
                 </div>
@@ -639,7 +632,7 @@ function updateRoom(type) {
 updateRoom("duplo");
 updateRoom("triplo");
 updateRoom("quad");
-    }
+    
 
     const weddingDate = new Date('2027-09-25T17:00:00');
 

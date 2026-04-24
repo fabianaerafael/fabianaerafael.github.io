@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dress Code | Fabiana & Rafael</title>
+  <meta name="description" content="Informações de dress code para o casamento de Fabiana & Rafael." />
+
+  <style>
+    :root {
+      --bg: #fffaf7;
+      --card: rgba(255,255,255,0.88);
+      --text: #3d2f2f;
+      --muted: #7b6a6a;
+      --accent: #b8896b;
+      --accent-dark: #8d654d;
+      --line: #eaded6;
+      --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
+      --radius: 24px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff2ea 0%, transparent 28%),
+        radial-gradient(circle at top right, #f7efe8 0%, transparent 20%),
+        linear-gradient(180deg, #fffdfb 0%, var(--bg) 100%);
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,250,247,0.75);
+      border-bottom: 1px solid rgba(234,222,214,0.9);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 56px 0 26px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .hero-content {
+      padding: 52px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5ece6;
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    h1 {
+      margin: 18px 0 12px;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 0;
+    }
+
+    .hero-photo {
+      min-height: 360px;
+      background:
+        linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.14)),
+        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
+
+    section {
+      padding: 34px 0 44px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .section-text {
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 74ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .info-block {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .info-block strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .info-block p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .meta {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .meta-item {
+      padding: 16px 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .note-box {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      padding: 10px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 16px 0 0;
+    }
+
+    @media (max-width: 920px) {
+      .hero-card,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .hero-content {
+        padding: 34px 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 6px;
+      }
+
+      .nav a {
+        padding: 8px 10px;
+        font-size: 0.92rem;
+      }
+
+      .subtitle {
+        font-size: 0.98rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">Fabiana & Rafael</a>
+
+      <nav class="nav">
+        <a href="index.html">Início</a>
+        <a href="presentes-casamento.html">Presentes</a>
+        <a href="dress-code.html" class="active">Dress code</a>
+        <a href="servicos.html">Serviços e indicações</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow">Orientações para os convidados</span>
+            <h1>Dress code</h1>
+            <p class="subtitle">
+              Queremos que todos se sintam confortáveis e elegantes para celebrar conosco. Como estaremos em um cenário à beira-mar, sugerimos escolhas leves, naturais e adequadas ao clima do litoral.
+            </p>
+          </div>
+
+          <div class="hero-photo" aria-label="Imagem decorativa de dress code"></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Sugestões de traje</h2>
+          <p class="section-text">
+            As orientações abaixo são sugestões para ajudar na escolha dos looks. Mais próximo da data, poderemos complementar com detalhes de paleta, referências e informações específicas de cada momento.
+          </p>
+
+          <div class="grid grid-2">
+            <div class="info-block">
+              <strong>Pré-wedding</strong>
+              <p>
+                Para o pré-wedding, sugerimos um visual leve, descontraído e elegante, combinando com o clima de celebração à beira-mar.
+              </p>
+
+              <div class="meta">
+                <div class="meta-item">
+                  <span class="meta-label">Sugestão</span>
+                  <strong>Traje leve e casual elegante</strong>
+                  <span>Tecidos fluidos, tons suaves e peças confortáveis.</span>
+                </div>
+
+                <div class="meta-item">
+                  <span class="meta-label">Calçados</span>
+                  <strong>Conforto em primeiro lugar</strong>
+                  <span>Prefira calçados adequados para áreas externas e ambientes próximos à praia.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <strong>Casamento</strong>
+              <p>
+                Para o casamento, a proposta é uma composição elegante, leve e apropriada para uma celebração no litoral.
+              </p>
+
+              <div class="meta">
+                <div class="meta-item">
+                  <span class="meta-label">Sugestão</span>
+                  <strong>Elegante à beira-mar</strong>
+                  <span>Peças sofisticadas, tecidos leves e cores em harmonia com o ambiente.</span>
+                </div>
+
+                <div class="meta-item">
+                  <span class="meta-label">Observação</span>
+                  <strong>Detalhes a confirmar</strong>
+                  <span>Informações mais específicas sobre paleta e orientações finais serão compartilhadas mais próximo da data.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <strong>Importante:</strong> como a celebração acontecerá em um cenário litorâneo, recomendamos evitar tecidos muito pesados e calçados que possam dificultar a circulação em áreas externas.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="divider"></div>
+    <p>Com carinho, Fabiana & Rafael.</p>
+  </footer>
+</body>
+</html>

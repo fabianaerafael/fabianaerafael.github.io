@@ -90,6 +90,58 @@
       color: var(--text);
     }
 
+    .nav-dropdown {
+  position: relative;
+}
+
+.nav-more {
+  padding: 10px 14px;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.nav-more:hover {
+  background: #fff;
+  color: var(--text);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  padding: 8px;
+  border-radius: 18px;
+  background: rgba(255, 250, 247, 0.96);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: none;
+  z-index: 80;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: grid;
+  gap: 4px;
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.nav-dropdown-menu a:hover {
+  background: #fff;
+  color: var(--text);
+}
+
     .hero {
       min-height: 82vh;
       display: grid;
@@ -391,13 +443,23 @@
       .gallery .wide, .gallery .small { grid-column: span 12; }
     }
 
-    @media (max-width: 640px) {
-      .topbar-inner { flex-direction: column; align-items: flex-start; }
-      .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .nav { gap: 6px; }
-      .nav a { padding: 8px 10px; font-size: 0.92rem; }
-      .subtitle { font-size: 1rem; }
-    }
+@media (max-width: 640px) {
+  .topbar-inner { flex-direction: column; align-items: flex-start; }
+  .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nav { gap: 6px; }
+  .nav a,
+  .nav-more {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+  }
+
+  .nav-dropdown-menu {
+    right: auto;
+    left: 0;
+  }
+
+  .subtitle { font-size: 1rem; }
+}
   </style>
 </head>
 <body id="topo">
@@ -405,12 +467,21 @@
     <div class="container topbar-inner">
       <a href="#topo" class="brand">Fabiana & Rafael</a>
       <nav class="nav">
-        <a href="#data">Data</a>
-        <a href="#hospedagem">Hospedagem</a>
-        <a href="#fotos">O Cenário</a>
-        <a href="#reservas">Reservas</a>
-        <a href="presentes-casamento.html">Presentes</a>
-      </nav>
+  <a href="#data">Data</a>
+  <a href="#hospedagem">Hospedagem</a>
+  <a href="#fotos">O Cenário</a>
+  <a href="#reservas">Reservas</a>
+  <a href="presentes-casamento.html">Presentes</a>
+
+  <div class="nav-dropdown">
+    <button class="nav-more" type="button">Mais</button>
+
+    <div class="nav-dropdown-menu">
+      <a href="dress-code.html">Dress code</a>
+      <a href="servicos.html">Serviços e indicações</a>
+    </div>
+  </div>
+</nav>
     </div>
   </header>
 

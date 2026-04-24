@@ -112,7 +112,7 @@
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 4px);
   right: 0;
   min-width: 220px;
   padding: 8px;
@@ -122,6 +122,15 @@
   box-shadow: var(--shadow);
   display: none;
   z-index: 80;
+}
+
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu {

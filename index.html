@@ -3,860 +3,491 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Casamento | Fabiana & Rafael</title>
-  <meta name="description" content="Site do casamento de Fabiana & Rafael com data do evento, hospedagem, informações sobre reservas e um pouco do cenário escolhido para esse momento especial." />
+  <title>Casamento de Fabiana & Rafael</title>
+  <meta name="description" content="Una-se a nós para celebrar o amor de Fabiana & Rafael à beira-mar. Encontre aqui todas as informações sobre o grande dia." />
+  
+  <!-- Fontes de Alta Costura: Playfair Display (Romântica) & Montserrat (Moderna/Limpa) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
   <style>
+    /* Paleta de Cores de Luxo - Inspirada no Entardecer Praiano */
     :root {
-      --bg: #fffaf7;
-      --card: rgba(255,255,255,0.88);
-      --text: #3d2f2f;
-      --muted: #7b6a6a;
-      --accent: #b8896b;
-      --accent-dark: #8d654d;
-      --line: #eaded6;
-      --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
-      --radius: 24px;
-      --max: 1120px;
+      --bg-warm: #fffbf9;
+      --card-white: rgba(255, 255, 255, 0.9);
+      --text-espresso: #2c1e1e;
+      --text-muted: #6e5d5d;
+      --terracotta: #b8896b;
+      --terracotta-dark: #8d654d;
+      --sand-line: #ede3dc;
+      --premium-shadow: 0 30px 60px rgba(77, 52, 39, 0.06);
+      --radius-lg: 24px;
+      --radius-sm: 12px;
+      --max-width: 1140px;
     }
 
-    .room-block {
-      margin-bottom: 20px;
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    
+    html { 
+      scroll-behavior: smooth; 
+    }
 
     body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-espresso);
       background:
-        radial-gradient(circle at top left, #fff2ea 0%, transparent 28%),
-        radial-gradient(circle at top right, #f7efe8 0%, transparent 20%),
-        linear-gradient(180deg, #fffdfb 0%, var(--bg) 100%);
+        radial-gradient(circle at top left, #fff1e7 0%, transparent 40%),
+        radial-gradient(circle at bottom right, #f9f0e8 0%, transparent 45%),
+        var(--bg-warm);
+      background-attachment: fixed;
       line-height: 1.7;
-      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      animation: fadeInPage 1.2s ease-out;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
+    @keyframes fadeInPage {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Topbar / Menu de Navegação */
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(255,250,247,0.75);
-      border-bottom: 1px solid rgba(234,222,214,0.9);
+      background: rgba(255, 251, 249, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(237, 223, 220, 0.4);
+      z-index: 100;
     }
 
-    .topbar-inner {
+    .nav-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.06em;
-      text-decoration: none;
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .nav a {
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--muted);
-      transition: 0.2s ease;
-    }
-
-    .nav a:hover {
-      background: #fff;
-      color: var(--text);
-    }
-
-    .nav-dropdown {
-  position: relative;
-}
-
-.nav-more {
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: var(--muted);
-  background: transparent;
-  border: none;
-  font: inherit;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.nav-more:hover {
-  background: #fff;
-  color: var(--text);
-}
-
-.nav-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 4px);
-  right: 0;
-  min-width: 220px;
-  padding: 8px;
-  border-radius: 18px;
-  background: rgba(255, 250, 247, 0.96);
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow);
-  display: none;
-  z-index: 80;
-}
-
-.nav-dropdown::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  height: 14px;
-}
-
-.nav-dropdown:hover .nav-dropdown-menu {
-  display: grid;
-  gap: 4px;
-}
-
-.nav-dropdown-menu a {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 12px;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
-.nav-dropdown-menu a:hover {
-  background: #fff;
-  color: var(--text);
-}
-
-    .hero {
-      min-height: 82vh;
-      display: grid;
       align-items: center;
-      padding: 56px 0 36px;
+      padding: 22px 24px;
     }
 
-    .hero-card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
-      border: 1px solid rgba(255,255,255,0.9);
-      box-shadow: var(--shadow);
-      border-radius: calc(var(--radius) + 8px);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-    }
-
-    .hero-content {
-      padding: 56px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #f5ece6;
-      color: var(--accent-dark);
-      font-size: 0.84rem;
+    .brand-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
+      color: var(--text-espresso);
+      text-decoration: none;
+      letter-spacing: 1.5px;
     }
 
-    h1 {
-      margin: 18px 0 12px;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      font-size: clamp(2.1rem, 5vw, 3.8rem);
-      line-height: 1.08;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-
-    .subtitle {
-      font-size: 1.04rem;
-      color: var(--muted);
-      max-width: 52ch;
-      margin-bottom: 28px;
-    }
-
-    .hero-actions {
+    .nav-menu {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 14px;
+      gap: 30px;
+      list-style: none;
     }
 
-    .btn {
-      display: inline-flex;
+    .nav-menu a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-menu a:hover, .nav-menu a.active {
+      color: var(--terracotta-dark);
+    }
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--terracotta);
+      transition: width 0.3s ease;
+    }
+
+    .nav-menu a:hover::after, .nav-menu a.active::after {
+      width: 100%;
+    }
+
+    /* Seção de Entrada (Hero) */
+    .hero-section {
+      max-width: 850px;
+      margin: 90px auto 40px auto;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    .hero-badge {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--terracotta);
+      font-weight: 500;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .couple-names {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 400;
+      color: var(--text-espresso);
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .hero-welcome-text {
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 50px auto;
+      font-weight: 300;
+    }
+
+    /* Moldura Fina e Sofisticada para Foto */
+    .photo-frame {
+      max-width: 760px;
+      margin: 0 auto 80px auto;
+      padding: 16px;
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--premium-shadow);
+      border: 1px solid var(--sand-line);
+    }
+
+    .couple-photo {
+      width: 100%;
+      height: 460px;
+      object-fit: cover;
+      border-radius: calc(var(--radius-lg) - 8px);
+      background-color: #f5ebe4;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 14px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      border: 1px solid transparent;
-      transition: 0.2s ease;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
+    /* Seção Romântica do Cronômetro */
+    .countdown-container {
+      max-width: var(--max-width);
+      margin: 0 auto 100px auto;
+      padding: 60px 24px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+      border-top: 1px solid rgba(237, 223, 220, 0.5);
+      border-bottom: 1px solid rgba(237, 223, 220, 0.5);
     }
 
-    .btn-primary:hover {
-      background: var(--accent-dark);
+    .countdown-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--text-espresso);
+      margin-bottom: 8px;
+      font-style: italic;
     }
 
-    .btn-secondary {
-      background: #fff;
-      border-color: var(--line);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent);
-    }
-
-    .btn-location {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 18px rgba(77, 52, 39, 0.05);
-    }
-
-    .btn-location:hover {
-      border-color: var(--accent);
-      transform: translateY(-1px);
-    }
-
-    .hero-photo {
-      min-height: 420px;
-      background:
-        linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.12)),
-        url('foto principal.jpeg') center/cover;
-    }
-
-    section {
-      padding: 44px 0;
-    }
-
-    .section-title {
-      margin: 0 0 10px;
-      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-      font-size: clamp(1.65rem, 3vw, 2.35rem);
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-
-    .section-text {
-      color: var(--muted);
-      margin: 0 0 28px;
-      max-width: 70ch;
-    }
-
-    .grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.9);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
+    .wedding-date-banner {
       font-size: 1.05rem;
+      color: var(--terracotta-dark);
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .timer-card {
+      background: var(--card-white);
+      border: 1px solid rgba(237, 223, 220, 0.7);
+      box-shadow: var(--premium-shadow);
+      border-radius: var(--radius-sm);
+      width: 110px;
+      padding: 24px 12px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .timer-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: var(--text-espresso);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .timer-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Seção Inédita: Guia de Navegação do Convidado */
+    .guest-guide {
+      max-width: var(--max-width);
+      margin: 0 auto 100px auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .guide-intro-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 45px;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .guide-card {
+      background: white;
+      border: 1px solid var(--sand-line);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: var(--premium-shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .guide-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 40px 70px rgba(77, 52, 39, 0.1);
+    }
+
+    .guide-card-icon {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--terracotta);
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .guide-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .guide-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      font-weight: 300;
+    }
+
+    .guide-card-btn {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--terracotta-dark);
       font-weight: 600;
     }
 
-    .meta {
-      display: grid;
-      gap: 14px;
-    }
-
-    .meta-item {
-      padding: 16px 18px;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-    }
-
-    .meta-label {
-      display: block;
-      font-size: 0.8rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .countdown {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 20px;
-    }
-
-    .countdown-box {
-      background: linear-gradient(180deg, #fff 0%, #fcf7f3 100%);
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 24px 14px;
+    /* Rodapé Principal */
+    .main-footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 60px 24px;
       text-align: center;
-      box-shadow: 0 10px 24px rgba(77, 52, 39, 0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-top: 1px solid var(--sand-line);
     }
 
-    .countdown-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(77, 52, 39, 0.10);
+    .footer-signature {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
     }
 
-    .countdown-highlight {
-      background: linear-gradient(180deg, #fff7f1 0%, #f4e6da 100%);
-      border-color: #d7b9a3;
-      transform: scale(1.02);
+    /* Responsividade para Celulares */
+    @media (max-width: 650px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 18px;
+        padding: 15px 20px;
+      }
+      .nav-menu {
+        gap: 18px;
+      }
+      .timer-grid {
+        gap: 10px;
+      }
+      .timer-card {
+        width: 78px;
+        padding: 18px 5px;
+      }
+      .timer-number {
+        font-size: 2rem;
+      }
+      .couple-photo {
+        height: 300px;
+      }
+      .hero-section {
+        margin: 50px auto 30px auto;
+      }
     }
-
-    .countdown-number {
-      font-size: clamp(1.8rem, 4.5vw, 2.7rem);
-      line-height: 1;
-      font-weight: 700;
-      color: var(--accent-dark);
-      letter-spacing: -0.03em;
-    }
-
-    .countdown-label {
-      display: block;
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 0.84rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .hotel-list {
-      display: grid;
-      gap: 16px;
-    }
-
-    .hotel-item {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
-      background: #fff;
-    }
-
-    .hotel-item strong {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .occupancy-track {
-      width: 100%;
-      height: 16px;
-      background: #f3ebe5;
-      border-radius: 999px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-
-    .occupancy-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-      border-radius: 999px;
-      transition: width 0.4s ease;
-    }
-
-    .occupancy-note {
-      margin-top: 10px;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 12px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 22px;
-      box-shadow: var(--shadow);
-      aspect-ratio: 1 / 1;
-    }
-
-    .gallery .wide { grid-column: span 6; }
-    .gallery .small { grid-column: span 3; }
-
-    .whatsapp-box {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer {
-      padding: 40px 0 60px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line), transparent);
-      margin: 16px 0 0;
-    }
-
-    @media (max-width: 920px) {
-      .hero-card, .grid-2, .grid-3 { grid-template-columns: 1fr; }
-      .hero-photo { min-height: 320px; order: -1; }
-      .hero-content { padding: 32px 24px; }
-      .gallery .wide, .gallery .small { grid-column: span 12; }
-    }
-
-@media (max-width: 640px) {
-  .topbar-inner { flex-direction: column; align-items: flex-start; }
-  .countdown { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .nav { gap: 6px; }
-  .nav a,
-  .nav-more {
-    padding: 8px 10px;
-    font-size: 0.92rem;
-  }
-
-  .nav-dropdown-menu {
-    right: auto;
-    left: 0;
-  }
-
-  .subtitle { font-size: 1rem; }
-}
   </style>
 </head>
-<body id="topo">
+<body>
+
+  <!-- Menu Superior Estruturado -->
   <header class="topbar">
-    <div class="container topbar-inner">
-      <a href="#topo" class="brand">Fabiana & Rafael</a>
-      <nav class="nav">
-  <a href="#data">Data</a>
-  <a href="#hospedagem">Hospedagem</a>
-  <a href="#fotos">O Cenário</a>
-  <a href="#reservas">Reservas</a>
-  <a href="presentes-casamento.html">Presentes</a>
-
-  <div class="nav-dropdown">
-    <button class="nav-more" type="button">Mais</button>
-
-    <div class="nav-dropdown-menu">
-      <a href="dress-code.html">Dress code</a>
-      <a href="servicos.html">Serviços e indicações</a>
-    </div>
-  </div>
-</nav>
-    </div>
+    <nav class="nav-container">
+      <a href="index.html" class="brand-logo">F & R</a>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="dress-code.html">Dress Code</a></li>
+        <li><a href="presentes-casamento.html">Presentes</a></li>
+        <li><a href="servicos.html">Serviços</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <div class="hero-card">
-          <div class="hero-content">
-            <span class="eyebrow">Nosso casamento</span>
-            <h1>Fabiana <br>& Rafael</h1>
-            <p class="subtitle">
-              Estamos muito felizes em celebrar esse momento com vocês. Reunimos aqui as principais informações sobre o casamento, a hospedagem e as reservas para que todos possam aproveitar esse momento tão especial conosco.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#hospedagem">Ver hospedagem</a>
-              <a class="btn btn-secondary" href="#reservas">Informações de reserva</a>
-              <a class="btn btn-secondary" href="presentes-casamento.html">Lista de presentes</a>
-            </div>
-          </div>
-          <div class="hero-photo" aria-label="Foto principal do casal"></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="data">
-      <div class="container grid grid-2">
-        <div class="card">
-          <h2 class="section-title">Data do evento</h2>
-          <p class="section-text"></p>
-
-          <div class="meta">
-            <div class="meta-item">
-              <span class="meta-label">Data</span>
-              <strong>23 a 26 de setembro de 2027</strong>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Horário</span>
-              <strong>Pré-wedding em 23/09 | Casamento em 25/09</strong>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Local</span>
-              <strong>Vila Entre Chaves – Morros de Camaragibe, Alagoas</strong>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">Estamos contando os dias</h2>
-          <p class="section-text">
-            Contagem regressiva para o nosso grande dia.
-          </p>
-
-          <div class="countdown" id="countdown">
-            <div class="countdown-box countdown-highlight">
-              <span class="countdown-number" id="days">--</span>
-              <span class="countdown-label">dias</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="hours">--</span>
-              <span class="countdown-label">horas</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="minutes">--</span>
-              <span class="countdown-label">minutos</span>
-            </div>
-            <div class="countdown-box">
-              <span class="countdown-number" id="seconds">--</span>
-              <span class="countdown-label">segundos</span>
-            </div>
-          </div>
-
-          <div class="meta" style="margin-top: 18px;">
-            <div class="meta-item">
-              <span class="meta-label">Casamento</span>
-              <strong id="countdown-date">25 de setembro de 2027</strong>
-            </div>
-          </div>
-
-          <p class="section-text" id="countdown-message" style="margin-top: 14px; margin-bottom: 0; text-align: center;"></p>
-        </div>
-      </div>
-    </section>
-
-<section id="hospedagem">
-  <div class="container">
-    <div class="card">
-      <h2 class="section-title">Hospedagem no Vila Entre Chaves</h2>
-      <p class="section-text">
-        O Vila Entre Chaves será o ponto de encontro para esses dias especiais, reunindo hospedagem, celebração e momentos à beira-mar.
+    <!-- Seção de Boas-vindas (Hero) -->
+    <section class="hero-section">
+      <span class="hero-badge">Sejam bem-vindos ao nosso site</span>
+      <h1 class="couple-names">Fabiana & Rafael</h1>
+      <p class="hero-welcome-text">
+        O início do nosso "para sempre" já tem data e um cenário perfeito. Criamos este espaço para compartilhar com vocês cada detalhe planejado com muito amor para a nossa celebração à beira-mar. Mal podemos esperar por esse grande dia!
       </p>
 
-      <div class="grid grid-2">
-        <div class="hotel-list">
-          <div class="hotel-item">
-            <strong>Hotel e localização</strong>
-            <span>Vila Entre Chaves</span><br>
-            <span>Praia dos Morros de Camaragibe, Costa dos Corais, Alagoas</span>
-
-            <p class="occupancy-note" style="margin-top: 12px;">
-              Localizado na Costa dos Corais, em Morros de Camaragibe, o Vila Entre Chaves oferece uma experiência de hospedagem exclusiva, cercada pela natureza e pelo clima especial do litoral alagoano.
-            </p>
-
-            <div class="whatsapp-box">
-              <a
-                class="btn btn-location"
-                href="https://maps.app.goo.gl/ATjcqyLL1pQm8QXm8"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Como chegar
-              </a>
-
-              <a
-                class="btn btn-location"
-                href="https://vilaentrechaves.com.br/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Site oficial
-              </a>
-
-              <a
-                class="btn btn-location"
-                href="https://www.instagram.com/vilaentrechaves/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Instagram
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="hotel-list">
-          <div class="hotel-item">
-            <strong>Programação</strong>
-
-            <p class="occupancy-note" style="margin-top: 10px; margin-bottom: 0;">
-              A programação principal contará com dois momentos especiais. Os horários oficiais serão compartilhados mais próximo da data.
-            </p>
-
-            <div class="meta" style="margin-top: 14px;">
-              <div class="meta-item">
-                <span class="meta-label">23 de setembro de 2027</span>
-                <strong>Pré-wedding</strong>
-                <span>Horário a ser confirmado</span>
-              </div>
-
-              <div class="meta-item">
-                <span class="meta-label">25 de setembro de 2027</span>
-                <strong>Casamento</strong>
-                <span>Horário a ser confirmado</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Moldura para Foto Principal -->
+      <div class="photo-frame">
+        <!-- Substitua o link de exemplo abaixo pela foto oficial do casal no futuro -->
+        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=1200" alt="Fabiana & Rafael" class="couple-photo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'couple-photo\'>Espaço reservado para uma linda foto de Fabiana & Rafael ❤️</div>'">
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-    <section id="fotos">
-      <div class="container">
-        <h2 class="section-title">O Cenário</h2>
-        <p class="section-text">Um pouco da beleza do lugar que escolhemos para celebrar esse momento tão especial.</p>
+    <!-- Seção de Contagem Regressiva Emocional -->
+    <section class="countdown-container">
+      <h2 class="countdown-title">Contando os segundos para o nosso sim...</h2>
+      <p class="wedding-date-banner" id="wedding-date-text">25 de Setembro de 2026</p>
 
-        <div class="gallery">
-          <img class="wide" src="https://vilaentrechaves.com.br/wp-content/uploads/Foto-banner-1.png" alt="Foto do casal 1">
-          <img class="small" src="https://vilaentrechaves.com.br/wp-content/uploads/Corais-2.jpg" alt="Foto do casal 2">
-          <img class="small" src="https://vilaentrechaves.com.br/wp-content/uploads/Drone_estrela-2.jpg" alt="Foto do casal 3">
-          <img class="small" src="FOTO-15-6-scaled.jpg" alt="Foto do casal 4">
-          <img class="small" src="FOTO-16-6-scaled.jpg" alt="Foto do casal 5">
-          <img class="small" src="foto6.jpeg" alt="Foto do casal 6">
-          <img class="small" src="foto7.jpg" alt="Foto do casal 7">
+      <div class="timer-grid">
+        <div class="timer-card">
+          <div class="timer-number" id="days-box">00</div>
+          <div class="timer-label">Dias</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="hours-box">00</div>
+          <div class="timer-label">Horas</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="min-box">00</div>
+          <div class="timer-label">Min</div>
+        </div>
+        <div class="timer-card">
+          <div class="timer-number" id="sec-box">00</div>
+          <div class="timer-label">Seg</div>
         </div>
       </div>
     </section>
 
-<section id="reservas">
-  <div class="container">
-    <div class="card">
-      <h2 class="section-title">Hospedagem e reservas</h2>
+    <!-- Seção Inédita: Guia Prático para os Convidados -->
+    <section class="guest-guide">
+      <h2 class="guide-intro-title" style="font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic;">Prepare-se para o nosso grande dia</h2>
+      
+      <div class="guide-grid">
+        <!-- Card Dress Code -->
+        <a href="dress-code.html" class="guide-card">
+          <div class="guide-card-icon">👗</div>
+          <h3>Dress Code</h3>
+          <p>Veja as nossas dicas de trajes para harmonizar perfeitamente com o clima leve e praiano do nosso casamento.</p>
+          <span class="guide-card-btn">Ver Inspirações &rarr;</span>
+        </a>
 
-      <p class="section-text">
-        Para tornar tudo mais prático e organizado, a hospedagem será acompanhada com o suporte da nossa concierge, que fará a orientação dos convidados em cada etapa da reserva.
-      </p>
+        <!-- Card Lista de Presentes -->
+        <a href="presentes-casamento.html" class="guide-card">
+          <div class="guide-card-icon">🎁</div>
+          <h3>Lista de Presentes</h3>
+          <p>Caso deseje nos presentear, preparamos uma lista especial em formato de cotas para a nossa nova jornada juntos.</p>
+          <span class="guide-card-btn">Acessar Lista &rarr;</span>
+        </a>
 
-      <div class="meta" style="margin-bottom: 22px;">
-        <div class="meta-item">
-          <span class="meta-label">Como funciona</span>
-          <strong>
-            A concierge fará o atendimento dos convidados, orientando sobre disponibilidade, categoria de quarto e os próximos passos para confirmação da hospedagem.
-          </strong>
-        </div>
+        <!-- Card Serviços e Dicas -->
+        <a href="servicos.html" class="guide-card">
+          <div class="guide-card-icon">🚗</div>
+          <h3>Serviços & Dicas</h3>
+          <p>Reunimos sugestões de hospedagem, salões de beleza e transfers para tornar a sua estadia o mais confortável possível.</p>
+          <span class="guide-card-btn">Ver Dicas &rarr;</span>
+        </a>
       </div>
-
-      <div class="grid grid-2">
-        <div class="hotel-list">
-          <div class="hotel-item">
-            <strong>Categorias e valores</strong>
-
-            <p class="occupancy-note" style="margin-top: 10px;">
-              Os valores contemplam 03 diárias com café da manhã e variam conforme a categoria escolhida.
-            </p>
-
-            <div class="meta" style="margin-top: 14px;">
-              <div class="meta-item">
-                <span class="meta-label">Quarto duplo</span>
-                <strong>R$ 5.750,00</strong>
-                <span>Até 2 pessoas</span>
-              </div>
-
-              <div class="meta-item">
-                <span class="meta-label">Quarto triplo</span>
-                <strong>R$ 7.500,00</strong>
-                <span>Até 3 pessoas</span>
-              </div>
-
-              <div class="meta-item">
-                <span class="meta-label">Quarto quádruplo</span>
-                <strong>R$ 9.100,00</strong>
-                <span>Até 4 pessoas</span>
-              </div>
-            </div>
-
-            <p class="occupancy-note" style="margin-top: 14px;">
-              As condições e próximos passos da reserva serão orientados diretamente pela concierge.
-            </p>
-
-            <div class="whatsapp-box">
-              <a
-                class="btn btn-location"
-                href="https://wa.me/558299203562?text=Olá!%20Gostaria%20de%20falar%20sobre%20as%20acomodações%20do%20casamento%20de%20Fabiana%20e%20Rafael."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Falar com a concierge
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="hotel-list">
-          <div class="hotel-item">
-            <strong>Status das acomodações</strong>
-
-            <p class="occupancy-note" style="margin-top: 10px;">
-              Atualizaremos este quadro conforme as reservas forem confirmadas.
-            </p>
-
-            <div class="room-block">
-              <strong>Quartos duplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-duplo"></div>
-              </div>
-              <p class="occupancy-note" id="text-duplo"></p>
-            </div>
-
-            <div class="room-block">
-              <strong>Quartos triplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-triplo"></div>
-              </div>
-              <p class="occupancy-note" id="text-triplo"></p>
-            </div>
-
-            <div class="room-block">
-              <strong>Quartos quádruplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-quad"></div>
-              </div>
-              <p class="occupancy-note" id="text-quad"></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="meta" style="margin-top: 22px;">
-        <div class="meta-item">
-          <span class="meta-label">Importante</span>
-          <strong>
-            Como as acomodações são limitadas, a confirmação da reserva será orientada diretamente pela concierge.
-          </strong>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
-  <footer class="footer container">
-    <div class="divider"></div>
-    <p>Com carinho, Fabiana & Rafael.</p>
+  <!-- Rodapé Emocional Assinado -->
+  <footer class="main-footer">
+    <p class="footer-signature">Com carinho, Fabiana & Rafael.</p>
   </footer>
 
+  <!-- Lógica Dinâmica da Contagem Regressiva -->
   <script>
-    const rooms = {
-      duplo: { total: 20, booked: 5 },
-      triplo: { total: 14, booked: 3 },
-      quad: { total: 2, booked: 1 }
-    };
+    // Data exata do casamento (Exemplo: 25 de Setembro de 2026 às 16:00)
+    const weddingDateTime = new Date('2026-09-25T16:00:00').getTime();
 
-    function updateRoom(type) {
-      const data = rooms[type];
-      const percent = (data.booked / data.total) * 100;
+    const dBox = document.getElementById('days-box');
+    const hBox = document.getElementById('hours-box');
+    const mBox = document.getElementById('min-box');
+    const sBox = document.getElementById('sec-box');
+    const bannerText = document.getElementById('wedding-date-text');
 
-      document.getElementById(`bar-${type}`).style.width = percent + "%";
-      document.getElementById(`text-${type}`).innerText =
-        `${data.booked} de ${data.total} reservados (${data.total - data.booked} disponíveis)`;
-    }
+    function updateTimer() {
+      const currentTime = new Date().getTime();
+      const difference = weddingDateTime - currentTime;
 
-    updateRoom("duplo");
-    updateRoom("triplo");
-    updateRoom("quad");
-
-    const weddingDate = new Date('2027-09-25T12:00:00');
-
-    const daysEl = document.getElementById('days');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const countdownDateEl = document.getElementById('countdown-date');
-    const countdownMessageEl = document.getElementById('countdown-message');
-
-    function updateCountdown() {
-      const now = new Date();
-      const diff = weddingDate - now;
-
-      if (diff <= 0) {
-        daysEl.textContent = '0';
-        hoursEl.textContent = '0';
-        minutesEl.textContent = '0';
-        secondsEl.textContent = '0';
-
-        if (countdownDateEl) {
-          countdownDateEl.textContent = 'Hoje é o grande dia!';
-        }
-
-        if (countdownMessageEl) {
-          countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
-        }
-
+      if (difference <= 0) {
+        dBox.textContent = '0';
+        hBox.textContent = '00';
+        mBox.textContent = '00';
+        sBox.textContent = '00';
+        if (bannerText) bannerText.textContent = 'Chegou o grande dia!';
         return;
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const h = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((difference / (1000 * 60)) % 60);
+      const s = Math.floor((difference / 1000) % 60);
 
-      daysEl.textContent = days;
-      hoursEl.textContent = String(hours).padStart(2, '0');
-      minutesEl.textContent = String(minutes).padStart(2, '0');
-      secondsEl.textContent = String(seconds).padStart(2, '0');
-
-      if (countdownDateEl) {
-        countdownDateEl.textContent = '25 de setembro de 2027';
-      }
-
-      if (countdownMessageEl) {
-        countdownMessageEl.textContent = '';
-      }
+      dBox.textContent = d;
+      hBox.textContent = String(h).padStart(2, '0');
+      mBox.textContent = String(m).padStart(2, '0');
+      sBox.textContent = String(s).padStart(2, '0');
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    updateTimer();
+    setInterval(updateTimer, 1000);
   </script>
 </body>
 </html>

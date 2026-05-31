@@ -3,166 +3,361 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Serviços & Indicações | Fabiana & Rafael</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <title>Serviços e Indicações | Fabiana & Rafael</title>
+  <meta name="description" content="Sugestões de serviços e indicações úteis para os convidados do casamento de Fabiana & Rafael." />
 
   <style>
     :root {
-      --bg-warm: #fffbf9;
-      --card-white: rgba(255, 255, 255, 0.9);
-      --text-espresso: #2c1e1e;
-      --text-muted: #6e5d5d;
-      --terracotta: #b8896b;
-      --terracotta-dark: #8d654d;
-      --sand-line: #ede3dc;
-      --premium-shadow: 0 30px 60px rgba(77, 52, 39, 0.06);
-      --radius-lg: 24px;
-      --radius-sm: 12px;
-      --max-width: 1140px;
+      --bg: #fffaf7;
+      --card: rgba(255,255,255,0.88);
+      --text: #3d2f2f;
+      --muted: #7b6a6a;
+      --accent: #b8896b;
+      --accent-dark: #8d654d;
+      --line: #eaded6;
+      --shadow: 0 16px 40px rgba(77, 52, 39, 0.10);
+      --radius: 24px;
+      --max: 1120px;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Montserrat', sans-serif;
-      color: var(--text-espresso);
-      background: radial-gradient(circle at top left, #fff1e7 0%, transparent 40%), var(--bg-warm);
-      background-attachment: fixed;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, #fff2ea 0%, transparent 28%),
+        radial-gradient(circle at top right, #f7efe8 0%, transparent 20%),
+        linear-gradient(180deg, #fffdfb 0%, var(--bg) 100%);
       line-height: 1.7;
+      font-weight: 400;
     }
 
-    /* Topbar */
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
     .topbar {
       position: sticky;
       top: 0;
-      background: rgba(255, 251, 249, 0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(237, 223, 220, 0.4);
-      z-index: 100;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,250,247,0.75);
+      border-bottom: 1px solid rgba(234,222,214,0.9);
     }
-    .nav-container {
-      max-width: var(--max-width); margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center; padding: 22px 24px;
-    }
-    .brand-logo {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--text-espresso); text-decoration: none; letter-spacing: 1.5px;
-    }
-    .nav-menu { display: flex; gap: 30px; list-style: none; }
-    .nav-menu a {
-      text-decoration: none; color: var(--text-muted); font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; transition: all 0.3s ease; position: relative; padding-bottom: 4px;
-    }
-    .nav-menu a:hover, .nav-menu a.active { color: var(--terracotta-dark); }
-    .nav-menu a::after {
-      content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background-color: var(--terracotta); transition: width 0.3s ease;
-    }
-    .nav-menu a:hover::after, .nav-menu a.active::after { width: 100%; }
 
-    /* Header Seção */
-    .content-section { max-width: var(--max-width); margin: 80px auto; padding: 0 24px; text-align: center; }
-    .page-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 400; margin-bottom: 15px; }
-    .page-subtitle { font-size: 1.05rem; color: var(--text-muted); font-weight: 300; max-width: 650px; margin: 0 auto 60px auto; }
-
-    /* Serviços Grid */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
-      margin-bottom: 60px;
-    }
-    .service-card {
-      background: white;
-      border: 1px solid var(--sand-line);
-      border-radius: var(--radius-lg);
-      padding: 40px 30px;
-      text-align: left;
-      box-shadow: var(--premium-shadow);
-    }
-    .service-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--terracotta-dark);
-      margin-bottom: 15px;
+    .topbar-inner {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
       gap: 10px;
     }
-    .service-card p {
-      font-size: 0.95rem;
-      color: var(--text-espresso);
-      font-weight: 300;
-      margin-bottom: 15px;
+
+    .nav a {
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: 0.2s ease;
     }
-    .coming-soon-badge {
+
+    .nav a:hover,
+    .nav a.active {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 56px 0 26px;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: var(--shadow);
+      border-radius: calc(var(--radius) + 8px);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .hero-content {
+      padding: 52px;
+    }
+
+    .eyebrow {
       display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--terracotta);
-      background: #fff5ef;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: 500;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #f5ece6;
+      color: var(--accent-dark);
+      font-size: 0.84rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
     }
 
-    /* Footer */
-    .main-footer { max-width: var(--max-width); margin: 0 auto; padding: 60px 24px; text-align: center; border-top: 1px solid var(--sand-line); }
-    .footer-signature { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--text-muted); }
+    h1 {
+      margin: 18px 0 12px;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
 
-    @media (max-width: 650px) {
-      .nav-container { flex-direction: column; gap: 18px; padding: 15px 20px; }
-      .nav-menu { gap: 18px; }
+    .subtitle {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 58ch;
+      margin-bottom: 0;
+    }
+
+    .hero-photo {
+      min-height: 360px;
+      background:
+        linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.14)),
+        url('ChatGPT Image 5 de mai. de 2026, 18_37_13.png') center/cover;
+    }
+
+    section {
+      padding: 34px 0 44px;
+    }
+
+    .section-title {
+      margin: 0 0 10px;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+    }
+
+    .section-text {
+      color: var(--muted);
+      margin: 0 0 28px;
+      max-width: 74ch;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      background: #fff;
+    }
+
+    .service-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .service-list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .service-list li {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #fffaf7;
+      border: 1px solid var(--line);
+    }
+
+    .note-box {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer {
+      padding: 10px 0 60px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), transparent);
+      margin: 16px 0 0;
+    }
+
+    @media (max-width: 920px) {
+      .hero-card,
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        min-height: 280px;
+        order: -1;
+      }
+
+      .hero-content {
+        padding: 34px 24px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav {
+        gap: 6px;
+      }
+
+      .nav a {
+        padding: 8px 10px;
+        font-size: 0.92rem;
+      }
+
+      .subtitle {
+        font-size: 0.98rem;
+      }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header class="topbar">
-    <nav class="nav-container">
-      <a href="index.html" class="brand-logo">F & R</a>
-      <ul class="nav-menu">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="dress-code.html">Dress Code</a></li>
-        <li><a href="presentes-casamento.html">Presentes</a></li>
-        <li><a href="servicos.html" class="active">Serviços</a></li>
-      </ul>
-    </nav>
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">Fabiana & Rafael</a>
+
+<nav class="nav">
+  <a href="index.html">Início</a>
+  <a href="dress-code.html">Dress code</a>
+  <a href="servicos.html" class="active">Serviços e indicações</a>
+</nav>
+    </div>
   </header>
 
-  <main class="content-section">
-    <h1 class="page-title">Dicas & Serviços</h1>
-    <p class="page-subtitle">Preparamos este espaço para ajudar você a planejar sua estadia e logística com o máximo de conforto. Queremos que você aproveite cada minuto da nossa celebração!</p>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-content">
+            <span class="eyebrow">Apoio aos convidados</span>
+            <h1>Serviços e indicações</h1>
+            <p class="subtitle">
+              Reunimos algumas sugestões para ajudar na organização da viagem e tornar a experiência dos convidados mais prática e tranquila durante esses dias especiais.
+            </p>
+          </div>
 
-    <div class="services-grid">
-      <!-- Hospedagem -->
-      <div class="service-card">
-        <h3><span>🛏️</span> Hospedagem</h3>
-        <p>Estamos selecionando as melhores pousadas e hotéis de charme da região que ofereçam fácil acesso ao local do casamento e total bem-estar.</p>
-        <span class="coming-soon-badge">Indicações em breve</span>
+          <div class="hero-photo" aria-label="Imagem decorativa de praia e viagem"></div>
+        </div>
       </div>
+    </section>
 
-      <!-- Salão de Beleza -->
-      <div class="service-card">
-        <h3><span>💄</span> Cuidados & Beleza</h3>
-        <p>Em breve compartilharemos contatos de maquiadores e cabeleireiros de confiança na cidade para ajudar nossas convidadas a se prepararem para o grande dia.</p>
-        <span class="coming-soon-badge">Indicações em breve</span>
-      </div>
+    <section>
+      <div class="container">
+        <div class="card">
+          <h2 class="section-title">Indicações úteis</h2>
+          <p class="section-text">
+            As informações abaixo são sugestões de apoio para os convidados. Elas não representam contratação obrigatória ou fornecedor exclusivo dos noivos.
+          </p>
 
-      <!-- Transfer / Transporte -->
-      <div class="service-card">
-        <h3><span>🚗</span> Logística & Transfers</h3>
-        <p>Pensando na sua comodidade, estamos mapeando as melhores opções de trajetos, transfers e estacionamento para que sua chegada ao evento seja tranquila.</p>
-        <span class="coming-soon-badge">Indicações em breve</span>
+          <div class="service-grid">
+            <div class="service-card">
+              <strong>Beleza</strong>
+              <p>
+                Sugestões para quem desejar organizar cabelo, maquiagem, barbearia ou outros cuidados pessoais antes dos eventos.
+              </p>
+
+              <ul class="service-list">
+                <li>Salão de beleza — informações a definir</li>
+                <li>Maquiagem e cabelo — informações a definir</li>
+                <li>Barbearia — informações a definir</li>
+              </ul>
+            </div>
+
+            <div class="service-card">
+              <strong>Transfer e deslocamento</strong>
+              <p>
+                Opções para facilitar o deslocamento entre aeroporto, hospedagem e região dos eventos.
+              </p>
+
+              <ul class="service-list">
+                <li>Transfer aeroporto / hotel — informações a definir</li>
+                <li>Motorista local — informações a definir</li>
+                <li>Táxi ou transporte executivo — informações a definir</li>
+              </ul>
+            </div>
+
+            <div class="service-card">
+              <strong>Outras referências</strong>
+              <p>
+                Indicações úteis para ajudar na estadia e no conforto dos convidados durante o período do casamento.
+              </p>
+
+              <ul class="service-list">
+                <li>Farmácia — informações a definir</li>
+                <li>Mercado — informações a definir</li>
+                <li>Restaurantes e passeios — informações a definir</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <strong>Observação:</strong> esta página será atualizada conforme reunirmos indicações confiáveis na região. As contratações, quando realizadas, serão de responsabilidade de cada convidado.
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <footer class="main-footer">
-    <p class="footer-signature">Com carinho, Fabiana & Rafael.</p>
+  <footer class="footer container">
+    <div class="divider"></div>
+    <p>Com carinho, Fabiana & Rafael.</p>
   </footer>
-
 </body>
 </html>

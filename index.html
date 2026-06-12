@@ -784,17 +784,27 @@
     const rooms = {
       duplo: { total: 20, booked: 13 },
       triplo: { total: 14, booked: 3 },
-      quad: { total: 2, booked: 1 }
+      quad: { total: 2, booked: 2 }
     };
 
-    function updateRoom(type) {
-      const data = rooms[type];
-      const percent = (data.booked / data.total) * 100;
+function updateRoom(type) {
+  const data = rooms[type];
+  const available = Math.max(data.total - data.booked, 0);
+  const percent = Math.min((data.booked / data.total) * 100, 100);
 
-      document.getElementById(`bar-${type}`).style.width = percent + "%";
-      document.getElementById(`text-${type}`).innerText =
-        `${data.booked} de ${data.total} reservados (${data.total - data.booked} disponíveis)`;
-    }
+  const bar = document.getElementById(`bar-${type}`);
+  const text = document.getElementById(`text-${type}`);
+
+  bar.style.width = percent + "%";
+
+  if (available === 0) {
+    text.innerText = "Acomodações esgotadas para esta categoria";
+  } else if (available === 1) {
+    text.innerText = `${data.booked} de ${data.total} reservados (1 disponível)`;
+  } else {
+    text.innerText = `${data.booked} de ${data.total} reservados (${available} disponíveis)`;
+  }
+}
 
     updateRoom("duplo");
     updateRoom("triplo");

@@ -400,7 +400,27 @@
       font-size: 0.9rem;
       color: var(--muted);
     }
+    
+.occupancy-update {
+  margin-top: 20px;
+  padding: 16px 18px;
+  background: #fff7f1;
+  border: 1px solid #eaded6;
+  border-radius: 16px;
+}
 
+.occupancy-update strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent-dark);
+}
+
+.occupancy-update p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
     .gallery {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -758,6 +778,12 @@
               </div>
               <p class="occupancy-note" id="text-quad"></p>
             </div>
+            <div class="occupancy-update">
+  <strong>Atualização das acomodações</strong>
+  <p>
+    Devido à alta procura por acomodações duplas, alguns quartos originalmente triplos foram convertidos em quartos duplos, ampliando a disponibilidade dessa categoria.
+  </p>
+</div>
           </div>
         </div>
       </div>
@@ -781,11 +807,11 @@
   </footer>
 
   <script>
-    const rooms = {
-      duplo: { total: 20, booked: 18 },
-      triplo: { total: 14, booked: 3 },
-      quad: { total: 2, booked: 1 }
-    };
+const rooms = {
+  duplo: { total: 25, booked: 18 },
+  triplo: { total: 9, booked: 3 },
+  quad: { total: 2, booked: 1 }
+};
 
 function updateRoom(type) {
   const data = rooms[type];

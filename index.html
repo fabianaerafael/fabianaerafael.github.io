@@ -823,9 +823,11 @@ function updateRoom(type) {
 
   bar.style.width = percent + "%";
 
-  if (available === 0) {
-    text.innerText = "Acomodações esgotadas para esta categoria";
-  } else if (available === 1) {
+   if (available === 0) {
+  text.innerText =
+    `${data.booked} de ${data.total} reservados — Acomodações esgotadas para esta categoria`;
+}
+  else if (available === 1) {
     text.innerText = `${data.booked} de ${data.total} reservados (1 disponível)`;
   } else {
     text.innerText = `${data.booked} de ${data.total} reservados (${available} disponíveis)`;

@@ -167,7 +167,7 @@
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 22px;
     }
 
@@ -205,6 +205,31 @@
       border-radius: 14px;
       background: #fffaf7;
       border: 1px solid var(--line);
+    }
+
+    .service-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .service-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .service-button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
     }
 
     .note-box {
@@ -334,6 +359,39 @@
             </div>
 
             <div class="service-card">
+              <strong>Passagens aéreas</strong>
+              <p>
+                Para os convidados que desejarem apoio na pesquisa ou emissão de passagens aéreas, indicamos a Tess Milhas como uma opção de confiança para auxiliar nesse processo.
+              </p>
+
+              <ul class="service-list">
+                <li>Tess Milhas — atendimento com Raissa</li>
+                <li>Pesquisa e emissão de passagens aéreas</li>
+                <li>Orientação sobre opções de voos para a viagem</li>
+              </ul>
+
+              <div class="service-actions">
+                <a
+                  class="service-button"
+                  href="https://wa.me/5511915289035?text=Olá,%20Raissa!%20Gostaria%20de%20informações%20sobre%20passagens%20aéreas%20para%20o%20casamento%20da%20Fabiana%20e%20do%20Rafael."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Falar com a Raissa
+                </a>
+
+                <a
+                  class="service-button"
+                  href="https://www.instagram.com/tessmilhas/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </div>
+            </div>
+
+            <div class="service-card">
               <strong>Outras referências</strong>
               <p>
                 Indicações úteis para ajudar na estadia e no conforto dos convidados durante o período do casamento.
@@ -348,7 +406,7 @@
           </div>
 
           <div class="note-box">
-            <strong>Observação:</strong> esta página será atualizada conforme reunirmos indicações confiáveis na região. As contratações, quando realizadas, serão de responsabilidade de cada convidado.
+            <strong>Observação:</strong> esta página será atualizada conforme reunirmos indicações confiáveis para apoiar os convidados. As contratações, quando realizadas, são opcionais e de responsabilidade de cada convidado, devendo ser tratadas diretamente com o fornecedor escolhido.
           </div>
         </div>
       </div>

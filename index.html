@@ -250,7 +250,7 @@
       min-height: 420px;
       background:
         linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.12)),
-        url('foto principal.jpeg') center/cover;
+        url('foto-principal.webp') center/cover;
     }
 
     section {
@@ -484,27 +484,27 @@
   .subtitle { font-size: 1rem; }
 }
   </style>
+  <link rel="stylesheet" href="navigation.css">
 </head>
 <body id="topo">
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="#topo" class="brand">Fabiana & Rafael</a>
-      <nav class="nav">
-  <a href="#data">Data</a>
-  <a href="#hospedagem">Local</a>
-  <a href="#fotos">O Cenário</a>
-  <a href="#reservas">Reservas</a>
-  <a href="presentes-casamento.html">Presentes</a>
-
-  <div class="nav-dropdown">
-    <button class="nav-more" type="button">Mais</button>
-
-    <div class="nav-dropdown-menu">
-      <a href="dress-code.html">Dress code</a>
-      <a href="servicos.html">Serviços e indicações</a>
-    </div>
-  </div>
-</nav>
+      <a href="#topo" class="brand">Fabiana &amp; Rafael</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="#data">Data</a>
+        <a href="#hospedagem">Local</a>
+        <a href="#fotos">O Cenário</a>
+        <a href="#reservas">Reservas</a>
+        <a href="presentes-casamento.html">Presentes</a>
+        <div class="nav-dropdown">
+          <button class="nav-more" type="button" aria-controls="more-links" aria-expanded="false">Mais</button>
+          <div class="nav-dropdown-menu" id="more-links">
+            <a href="dress-code.html">Dress code</a>
+            <a href="servicos.html">Serviços e indicações</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -541,8 +541,9 @@
               <strong>23 a 26 de setembro de 2027</strong>
             </div>
             <div class="meta-item">
-              <span class="meta-label">Horário</span>
-              <strong>Welcome em 23/09 | Casamento em 25/09</strong>
+              <span class="meta-label">Programação</span>
+              <strong>Welcome em 23/09 | Casamento em 25/09</strong><br>
+              <span>Horários a confirmar</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Local</span>
@@ -680,13 +681,13 @@
         <p class="section-text">Um pouco da beleza do lugar que escolhemos para celebrar esse momento tão especial.</p>
 
         <div class="gallery">
-          <img class="wide" src="https://vilaentrechaves.com.br/wp-content/uploads/Foto-banner-1.png" alt="Foto do casal 1">
-          <img class="small" src="https://vilaentrechaves.com.br/wp-content/uploads/Corais-2.jpg" alt="Foto do casal 2">
-          <img class="small" src="https://vilaentrechaves.com.br/wp-content/uploads/Drone_estrela-2.jpg" alt="Foto do casal 3">
-          <img class="small" src="FOTO-15-6-scaled.jpg" alt="Foto do casal 4">
-          <img class="small" src="FOTO-16-6-scaled.jpg" alt="Foto do casal 5">
-          <img class="small" src="foto6.jpeg" alt="Foto do casal 6">
-          <img class="small" src="foto7.jpg" alt="Foto do casal 7">
+          <img class="wide" loading="lazy" decoding="async" src="https://vilaentrechaves.com.br/wp-content/uploads/Foto-banner-1.png" alt="Vista do Vila Entre Chaves, local das celebrações">
+          <img class="small" loading="lazy" decoding="async" src="https://vilaentrechaves.com.br/wp-content/uploads/Corais-2.jpg" alt="Paisagem da Costa dos Corais">
+          <img class="small" loading="lazy" decoding="async" src="https://vilaentrechaves.com.br/wp-content/uploads/Drone_estrela-2.jpg" alt="Vista aérea do cenário das celebrações">
+          <img class="small" loading="lazy" decoding="async" src="cenario-1.webp" alt="Cenário do casamento em Morros de Camaragibe — foto 4">
+          <img class="small" loading="lazy" decoding="async" src="cenario-2.webp" alt="Cenário do casamento em Morros de Camaragibe — foto 5">
+          <img class="small" loading="lazy" decoding="async" src="cenario-3.webp" alt="Cenário do casamento em Morros de Camaragibe — foto 6">
+          <img class="small" loading="lazy" decoding="async" src="cenario-4.webp" alt="Cenário do casamento em Morros de Camaragibe — foto 7">
         </div>
       </div>
     </section>
@@ -727,26 +728,26 @@
 
             <div class="room-block">
               <strong>Quartos duplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-duplo"></div>
+              <div class="occupancy-track" aria-hidden="true">
+                <div class="occupancy-bar" id="bar-duplo" style="width:100%"></div>
               </div>
-              <p class="occupancy-note" id="text-duplo"></p>
+              <p class="occupancy-note" id="text-duplo">27 de 27 reservados — Acomodações esgotadas para esta categoria</p>
             </div>
 
             <div class="room-block">
               <strong>Quartos triplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-triplo"></div>
+              <div class="occupancy-track" aria-hidden="true">
+                <div class="occupancy-bar" id="bar-triplo" style="width:100%"></div>
               </div>
-              <p class="occupancy-note" id="text-triplo"></p>
+              <p class="occupancy-note" id="text-triplo">7 de 7 reservados — Acomodações esgotadas para esta categoria</p>
             </div>
 
             <div class="room-block">
               <strong>Quartos quádruplos</strong>
-              <div class="occupancy-track">
-                <div class="occupancy-bar" id="bar-quad"></div>
+              <div class="occupancy-track" aria-hidden="true">
+                <div class="occupancy-bar" id="bar-quad" style="width:100%"></div>
               </div>
-              <p class="occupancy-note" id="text-quad"></p>
+              <p class="occupancy-note" id="text-quad">2 de 2 reservados — Acomodações esgotadas para esta categoria</p>
             </div>
 
             <div class="occupancy-update">
@@ -798,7 +799,7 @@
             <strong>Concierge</strong>
 
             <p class="occupancy-note" style="margin-top: 10px;">
-              A concierge seguirá acompanhando apenas as acomodações do Vila Entre Chaves, que já foram preenchidas. Em caso de desistência ou eventual liberação de quartos, os convidados em lista de espera poderão ser informados.
+              A concierge acompanha exclusivamente as acomodações do Vila Entre Chaves. Ela não realiza reservas no Vila Galé Alagoas. Em caso de desistência ou eventual liberação de quartos, os convidados em lista de espera poderão ser informados.
             </p>
 
             <div class="whatsapp-box">
@@ -866,7 +867,8 @@
     updateRoom("triplo");
     updateRoom("quad");
 
-    const weddingDate = new Date('2027-09-25T12:00:00');
+    const weddingDate = new Date('2027-09-25T00:00:00-03:00');
+    const weddingDayEnd = new Date('2027-09-26T00:00:00-03:00');
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
@@ -886,11 +888,11 @@
         secondsEl.textContent = '0';
 
         if (countdownDateEl) {
-          countdownDateEl.textContent = 'Hoje é o grande dia!';
+          countdownDateEl.textContent = now < weddingDayEnd ? 'Hoje é o grande dia!' : '25 de setembro de 2027';
         }
 
         if (countdownMessageEl) {
-          countdownMessageEl.textContent = 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️';
+          countdownMessageEl.textContent = now < weddingDayEnd ? 'Chegou o momento de celebrar o casamento de Fabiana & Rafael ❤️' : 'Obrigado por celebrar esse momento conosco!';
         }
 
         return;
@@ -918,5 +920,6 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
   </script>
+  <script src="navigation.js" defer></script>
 </body>
 </html>

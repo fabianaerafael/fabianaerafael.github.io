@@ -138,7 +138,7 @@
       min-height: 360px;
       background:
         linear-gradient(rgba(67,48,38,0.10), rgba(67,48,38,0.12)),
-        url('foto presente.jpeg') center/cover;
+        url('foto-presente.webp') center/cover;
     }
 
     section {
@@ -283,6 +283,8 @@
       display: flex;
     }
 
+    .modal-card { max-height: calc(100dvh - 28px); overflow-y: auto; }
+
 .modal-card {
   width: min(100%, 400px);
   background: #fffdfb;
@@ -426,14 +428,26 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="navigation.css">
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="index.html" class="brand">Fabiana & Rafael</a>
-      <nav class="nav">
-        <a href="index.html">Início</a>
-        <a href="presentes-casamento.html" class="active">Presentes</a>
+      <a href="index.html" class="brand">Fabiana &amp; Rafael</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="index.html#data">Data</a>
+        <a href="index.html#hospedagem">Local</a>
+        <a href="index.html#fotos">O Cenário</a>
+        <a href="index.html#reservas">Reservas</a>
+        <a href="presentes-casamento.html" aria-current="page">Presentes</a>
+        <div class="nav-dropdown">
+          <button class="nav-more" type="button" aria-controls="more-links" aria-expanded="false">Mais</button>
+          <div class="nav-dropdown-menu" id="more-links">
+            <a href="dress-code.html">Dress code</a>
+            <a href="servicos.html">Serviços e indicações</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -463,7 +477,7 @@
 
         <div class="gift-grid">
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80" alt="Brinde à beira-mar" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=900&q=80" alt="Brinde à beira-mar" />
             <div class="gift-body">
               <span class="gift-tag">Experiência</span>
               <h3 class="gift-title">Brinde à beira-mar</h3>
@@ -476,7 +490,7 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Jantar especial a dois" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Jantar especial a dois" />
             <div class="gift-body">
               <span class="gift-tag">A dois</span>
               <h3 class="gift-title">Jantar especial a dois</h3>
@@ -489,7 +503,7 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Passeio pelo litoral" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Passeio pelo litoral" />
             <div class="gift-body">
               <span class="gift-tag">Passeio</span>
               <h3 class="gift-title">Passeio pelo litoral</h3>
@@ -502,7 +516,7 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Experiência de relaxamento" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80" alt="Experiência de relaxamento" />
             <div class="gift-body">
               <span class="gift-tag">Bem-estar</span>
               <h3 class="gift-title">Experiência de relaxamento</h3>
@@ -515,7 +529,7 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Passeio de barco" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80" alt="Passeio de barco" />
             <div class="gift-body">
               <span class="gift-tag">Especial</span>
               <h3 class="gift-title">Passeio de barco</h3>
@@ -528,7 +542,7 @@
           </article>
 
           <article class="gift-card">
-            <img class="gift-image" src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=900&q=80" alt="Momento da lua de mel" />
+            <img class="gift-image" loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1496412705862-e0088f16f791?auto=format&fit=crop&w=900&q=80" alt="Momento da lua de mel" />
             <div class="gift-body">
               <span class="gift-tag">Lua de mel</span>
               <h3 class="gift-title">Momento da lua de mel</h3>
@@ -548,9 +562,9 @@
     </section>
   </main>
 
-  <div class="modal" id="gift-modal" aria-hidden="true">
+  <div class="modal" id="gift-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
     <div class="modal-card">
-      <button class="modal-close" id="modal-close">×</button>
+      <button class="modal-close" id="modal-close" type="button" aria-label="Fechar">×</button>
 
       <h2 class="modal-title" id="modal-title">Presente</h2>
       <div class="modal-price" id="modal-price">R$ 0,00</div>
@@ -560,28 +574,28 @@
       </p>
 
       <div class="qr-frame">
-        <img id="modal-qr" src="qr-placeholder.png" alt="QR Code do presente">
+        <img id="modal-qr" alt="QR Code do presente">
       </div>
 
       <form id="gift-form" action="https://formspree.io/f/xeepdnbz" method="POST" style="margin-top:16px; display:flex; flex-direction:column; gap:10px;">
         <input type="hidden" name="presente" id="form-presente">
         <input type="hidden" name="valor" id="form-valor">
 
-        <input type="text" name="nome" placeholder="Seu nome" required style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
-        <input type="email" name="email" placeholder="Seu e-mail (opcional)" style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
-        <textarea name="mensagem" placeholder="Escreva uma mensagem para os noivos" rows="3" style="padding:12px; border-radius:12px; border:1px solid #eaded6;"></textarea>
+        <input type="text" name="nome" aria-label="Seu nome" placeholder="Seu nome" required style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
+        <input type="email" name="email" aria-label="Seu e-mail (opcional)" placeholder="Seu e-mail (opcional)" style="padding:12px; border-radius:12px; border:1px solid #eaded6;">
+        <textarea name="mensagem" aria-label="Mensagem para os noivos" placeholder="Escreva uma mensagem para os noivos" rows="3" style="padding:12px; border-radius:12px; border:1px solid #eaded6;"></textarea>
 
         <button type="submit" class="btn btn-primary">
           Enviar mensagem aos noivos
         </button>
       </form>
 
-      <div id="success-message" class="success-message">
+      <div id="success-message" class="success-message" role="status">
         Mensagem enviada com sucesso. Obrigado pelo carinho.
       </div>
 
       <div class="footnote">
-        Confirme se o beneficiário exibido é <strong>Rafael Rizzuto</strong>.
+        Confirme se o beneficiário exibido é <strong>Rafael Trigo Rizzuto</strong>.
       </div>
     </div>
   </div>
@@ -599,8 +613,11 @@
     const modalClose = document.getElementById('modal-close');
     const giftButtons = document.querySelectorAll('.gift-button');
 
+    let previouslyFocused = null;
+
     giftButtons.forEach(button => {
       button.addEventListener('click', () => {
+        previouslyFocused = button;
         modalTitle.textContent = button.dataset.title;
         modalPrice.textContent = button.dataset.price;
         modalQr.src = button.dataset.qr;
@@ -613,6 +630,8 @@
 
         modal.classList.add('open');
         modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        modalClose.focus();
       });
     });
 
@@ -621,29 +640,44 @@
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      const data = new FormData(form);
-
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        form.reset();
+      const submitButton = form.querySelector('[type="submit"]');
+      submitButton.disabled = true;
+      successMessage.style.display = 'none';
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('Falha no envio');
+        form.querySelector('[name="nome"]').value = '';
+        form.querySelector('[name="email"]').value = '';
+        form.querySelector('[name="mensagem"]').value = '';
+        successMessage.textContent = 'Mensagem enviada com sucesso. Obrigado pelo carinho.';
+      } catch (error) {
+        successMessage.textContent = 'Não foi possível enviar sua mensagem agora. Tente novamente em instantes.';
+      } finally {
         successMessage.style.display = 'block';
+        submitButton.disabled = false;
       }
     });
 
     function closeModal() {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (previouslyFocused) previouslyFocused.focus();
     }
 
     modalClose.addEventListener('click', closeModal);
+
+    modal.addEventListener('keydown', event => {
+      if (event.key !== 'Tab') return;
+      const focusable = [...modal.querySelectorAll('button, input, textarea')].filter(el => !el.disabled);
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    });
 
     modal.addEventListener('click', (event) => {
       if (event.target === modal) closeModal();
@@ -655,5 +689,6 @@
       }
     });
   </script>
+  <script src="navigation.js" defer></script>
 </body>
 </html>

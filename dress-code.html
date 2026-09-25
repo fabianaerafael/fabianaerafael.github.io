@@ -136,7 +136,7 @@
       min-height: 360px;
       background:
         linear-gradient(rgba(67,48,38,0.12), rgba(67,48,38,0.14)),
-        url('ChatGPT Image 5 de mai. de 2026, 18_19_54.png') center/cover;
+        url('dress-code.webp') center/cover;
     }
 
     section {
@@ -273,18 +273,28 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="navigation.css">
 </head>
 
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="index.html" class="brand">Fabiana & Rafael</a>
-
-<nav class="nav">
-  <a href="index.html">Início</a>
-  <a href="dress-code.html" class="active">Dress code</a>
-  <a href="servicos.html">Serviços e indicações</a>
-</nav>
+      <a href="index.html" class="brand">Fabiana &amp; Rafael</a>
+      <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Navegação principal">
+        <a href="index.html#data">Data</a>
+        <a href="index.html#hospedagem">Local</a>
+        <a href="index.html#fotos">O Cenário</a>
+        <a href="index.html#reservas">Reservas</a>
+        <a href="presentes-casamento.html">Presentes</a>
+        <div class="nav-dropdown">
+          <button class="nav-more" type="button" aria-controls="more-links" aria-expanded="false">Mais</button>
+          <div class="nav-dropdown-menu" id="more-links">
+            <a href="dress-code.html" aria-current="page">Dress code</a>
+            <a href="servicos.html">Serviços e indicações</a>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
 
@@ -368,5 +378,6 @@
     <div class="divider"></div>
     <p>Com carinho, Fabiana & Rafael.</p>
   </footer>
+  <script src="navigation.js" defer></script>
 </body>
 </html>

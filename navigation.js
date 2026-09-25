@@ -37,6 +37,6 @@
     if (event.target.closest('a')) closeMenu();
   });
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 900) closeMenu();
+    if (window.innerWidth > 1000) closeMenu();
   });
 })();

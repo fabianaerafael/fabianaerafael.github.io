@@ -118,11 +118,13 @@
     }
   </style>
   <link rel="stylesheet" href="navigation.css">
+  <link rel="stylesheet" href="identidade.css">
+  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="index.html" class="brand">Fabiana &amp; Rafael</a>
+      <a href="index.html" class="brand"><img src="monograma-fr.webp" width="33" height="40" alt=""><span>Fabiana &amp; Rafael</span></a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Navegação principal">
         <a href="index.html#data">Data</a>
@@ -144,13 +146,14 @@
 
   <main class="container">
     <div class="intro">
+      <img class="hero-monogram" src="monograma-fr.webp" width="60" height="72" alt="Monograma de Fabiana e Rafael">
       <span class="eyebrow">Fabiana &amp; Rafael • setembro de 2027</span>
       <h1>Confirme sua presença</h1>
       <p>Conte para nós quem estará no Welcome, em 23/09, e no casamento, em 25/09. Uma pessoa pode responder por todo o grupo.</p>
     </div>
     <div class="card">
       <h2>Sua resposta</h2>
-      <p class="help">Informe <strong>0</strong> para o evento em que seu grupo não poderá comparecer. Os horários serão confirmados mais perto da data.</p>
+      <p class="help">Informe <strong>0</strong> para o evento em que seu grupo não poderá comparecer. O casamento será às 15h; o horário do Welcome será confirmado mais perto da data.</p>
       <form id="rsvp-form" action="https://formspree.io/f/xeepdnbz" method="POST">
         <input type="hidden" name="subject" value="RSVP – Casamento Fabiana e Rafael">
         <input type="hidden" name="tipo" value="Confirmação de presença">

@@ -485,11 +485,13 @@
 }
   </style>
   <link rel="stylesheet" href="navigation.css">
+  <link rel="stylesheet" href="identidade.css">
+  <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body id="topo">
   <header class="topbar">
     <div class="container topbar-inner">
-      <a href="#topo" class="brand">Fabiana &amp; Rafael</a>
+      <a href="#topo" class="brand"><img src="monograma-fr.webp" width="33" height="40" alt=""><span>Fabiana &amp; Rafael</span></a>
       <button class="menu-toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Navegação principal">
         <a href="#data">Data</a>
@@ -510,12 +512,13 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero home-hero">
       <div class="container">
         <div class="hero-card">
           <div class="hero-content">
-            <span class="eyebrow">Nosso casamento</span>
-            <h1>Fabiana <br>& Rafael</h1>
+            <img class="hero-monogram" src="monograma-fr.webp" width="60" height="72" alt="Monograma de Fabiana e Rafael">
+            <span class="eyebrow">Com muito amor</span>
+            <h1>Fabiana e Rafael</h1>
             <p class="subtitle">
               Estamos muito felizes em celebrar esse momento com vocês. Reunimos aqui as principais informações sobre o casamento, a hospedagem e as reservas para que todos possam aproveitar esse momento tão especial conosco.
             </p>
@@ -544,7 +547,7 @@
             <div class="meta-item">
               <span class="meta-label">Programação</span>
               <strong>Welcome em 23/09 | Casamento em 25/09</strong><br>
-              <span>Horários a confirmar</span>
+              <span>Welcome: horário a confirmar · Casamento: 15h</span>
             </div>
             <div class="meta-item">
               <span class="meta-label">Local</span>
@@ -581,7 +584,7 @@
           <div class="meta" style="margin-top: 18px;">
             <div class="meta-item">
               <span class="meta-label">Casamento</span>
-              <strong id="countdown-date">25 de setembro de 2027</strong>
+              <strong id="countdown-date">25 de setembro de 2027 · 15h</strong>
             </div>
           </div>
 
@@ -609,6 +612,10 @@
       <p class="section-text">
         O Vila Entre Chaves será o cenário principal desses dias especiais, reunindo os momentos de celebração em um ambiente acolhedor, cercado pela natureza e pelo clima único do litoral alagoano.
       </p>
+      <figure class="venue-sketch">
+        <img src="sketch-vila-entre-chaves.webp" width="1500" height="1061" loading="lazy" decoding="async" alt="Ilustração da Vila Entre Chaves e da praia dos Morros de Camaragibe">
+        <figcaption>Vila Entre Chaves · Alagoas</figcaption>
+      </figure>
 
       <div class="grid grid-2">
         <div class="hotel-list">
@@ -656,7 +663,7 @@
             <strong>Programação</strong>
 
             <p class="occupancy-note" style="margin-top: 10px; margin-bottom: 0;">
-              A programação principal contará com dois momentos especiais. Os horários oficiais serão compartilhados mais próximo da data.
+              A programação principal contará com dois momentos especiais. O horário do Welcome será compartilhado mais perto da data.
             </p>
 
             <div class="meta" style="margin-top: 14px;">
@@ -669,7 +676,7 @@
               <div class="meta-item">
                 <span class="meta-label">25 de setembro de 2027</span>
                 <strong>Casamento</strong>
-                <span>Horário a ser confirmado</span>
+                <span>Às 15h</span>
               </div>
             </div>
           </div>
@@ -880,7 +887,7 @@
     updateRoom("triplo");
     updateRoom("quad");
 
-    const weddingDate = new Date('2027-09-25T00:00:00-03:00');
+    const weddingDate = new Date('2027-09-25T15:00:00-03:00');
     const weddingDayEnd = new Date('2027-09-26T00:00:00-03:00');
 
     const daysEl = document.getElementById('days');
@@ -901,7 +908,7 @@
         secondsEl.textContent = '0';
 
         if (countdownDateEl) {
-          countdownDateEl.textContent = now < weddingDayEnd ? 'Hoje é o grande dia!' : '25 de setembro de 2027';
+          countdownDateEl.textContent = now < weddingDayEnd ? 'Hoje é o grande dia!' : '25 de setembro de 2027 · 15h';
         }
 
         if (countdownMessageEl) {
@@ -922,7 +929,7 @@
       secondsEl.textContent = String(seconds).padStart(2, '0');
 
       if (countdownDateEl) {
-        countdownDateEl.textContent = '25 de setembro de 2027';
+        countdownDateEl.textContent = '25 de setembro de 2027 · 15h';
       }
 
       if (countdownMessageEl) {

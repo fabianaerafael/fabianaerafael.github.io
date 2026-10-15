@@ -71,6 +71,65 @@ body {
   box-shadow: none;
 }
 
+/* Detalhes dentro dos cards aparecem como linhas, sem criar novos cards. */
+.card .meta,
+.info-block .meta,
+.hotel-item .meta {
+  gap: 0;
+}
+
+.card .meta-item,
+.info-block .meta-item,
+.hotel-item .meta-item {
+  padding: 12px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.card .meta-item:first-child,
+.info-block .meta-item:first-child,
+.hotel-item .meta-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.meta-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 3px;
+}
+
+.service-list { gap: 0; }
+.service-list li {
+  padding: 9px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+.service-list li:first-child { border-top: 1px solid var(--line); }
+
+.note-box,
+.occupancy-update {
+  background: #f8eee7;
+  border: 0;
+  border-left: 2px solid #c99d8c;
+  border-radius: 0 12px 12px 0;
+  box-shadow: none;
+}
+
+.room-block {
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+fieldset {
+  background: #fffcf8;
+  border-color: #e7dcd2;
+  border-radius: 14px;
+}
+
 .rsvp-callout {
   background: #f8eee7;
   border-color: #e3cfc2;
@@ -283,7 +342,6 @@ body {
 #data .countdown-date strong { color: var(--accent-dark); font-weight: 550; }
 #data #countdown-message { margin: 12px 0 0; text-align: center; }
 #data #countdown-message:empty { display: none; }
-.occupancy-update { background: #f8eee8; border-color: var(--line); }
 .field input:focus,
 .field textarea:focus,
 input:focus-visible,

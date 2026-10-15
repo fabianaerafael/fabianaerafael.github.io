@@ -14,7 +14,7 @@
   --accent: #974b3e;
   --accent-dark: #71372e;
   --line: #dbc8bb;
-  --shadow: 0 14px 34px rgba(91, 57, 43, 0.08);
+  --shadow: 0 8px 24px rgba(91, 57, 43, 0.055);
 }
 
 body {
@@ -53,7 +53,27 @@ body {
 .card,
 .gift-card,
 .service-card {
-  border-color: var(--line);
+  background: #fcf8f3;
+  border: 1px solid #e3d5ca;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card { padding: clamp(20px, 2.5vw, 30px); }
+
+.meta-item,
+.info-block,
+.hotel-item,
+.service-list li {
+  background: #fffcf8;
+  border-color: #e7dcd2;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.rsvp-callout {
+  background: #f8eee7;
+  border-color: #e3cfc2;
 }
 
 .eyebrow {
@@ -197,11 +217,72 @@ body {
   color: var(--accent);
 }
 
-.countdown-highlight {
-  background: #f4e6dc;
-  border-color: #c8a69a;
+#data { padding: 30px 0 26px; }
+#data .grid { gap: 18px; }
+#data .section-title {
+  margin-bottom: 10px;
+  font-size: clamp(1.5rem, 2.25vw, 1.9rem);
 }
-.countdown-number { color: var(--accent); }
+#data .section-text { margin: 0; }
+#data .meta { gap: 0; margin-top: 16px; }
+#data .meta-item {
+  padding: 13px 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+}
+#data .meta-item:first-child { border-top: 1px solid var(--line); }
+#data .meta-label { font-size: 0.7rem; letter-spacing: 0.1em; margin-bottom: 3px; }
+#data .meta-item strong { font-weight: 550; }
+#data .countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 22px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+#data .countdown-box,
+#data .countdown-highlight {
+  min-width: 0;
+  padding: 4px 6px;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+}
+#data .countdown-box:last-child { border-right: 0; }
+#data .countdown-box:hover { transform: none; box-shadow: none; }
+#data .countdown-number {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-size: clamp(1.65rem, 2.7vw, 2.2rem);
+  font-weight: 400;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+#data .countdown-label { margin-top: 4px; font-size: 0.65rem; letter-spacing: 0.08em; }
+#data .countdown-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 16px 0 0;
+  font-size: 0.88rem;
+}
+#data .countdown-date span {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+#data .countdown-date strong { color: var(--accent-dark); font-weight: 550; }
+#data #countdown-message { margin: 12px 0 0; text-align: center; }
+#data #countdown-message:empty { display: none; }
 .occupancy-update { background: #f8eee8; border-color: var(--line); }
 .field input:focus,
 .field textarea:focus,
@@ -221,4 +302,7 @@ textarea:focus-visible { outline-color: var(--accent); }
   .venue-sketch { padding: 2px 0 12px; }
   .hero-actions .btn { width: auto; }
   .rsvp-callout .btn { align-self: flex-start; }
+  #data .countdown { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  #data .countdown-number { font-size: clamp(1.5rem, 7vw, 1.85rem); }
+  #data .countdown-label { font-size: 0.58rem; letter-spacing: 0.04em; }
 }

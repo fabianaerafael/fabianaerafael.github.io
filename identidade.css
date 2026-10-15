@@ -277,6 +277,9 @@ fieldset {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 1500 / 811;
+  object-fit: cover;
+  object-position: center bottom;
   margin: 0 auto;
 }
 .venue-sketch figcaption {
